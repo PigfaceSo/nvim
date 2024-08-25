@@ -22,7 +22,7 @@ require("lazy").setup("plugins", {
     missing = true,
   },
   rocks = {
-    enabled = false,
+    enabled = true,
   },
   performance = {
     cache = {

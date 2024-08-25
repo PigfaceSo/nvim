@@ -13,8 +13,8 @@ opt.encoding = "utf-8"
 opt.termguicolors = true
 
 opt.mouse = "a"
-opt.cursorline = false
-opt.cursorcolumn = false
+opt.cursorline = true
+opt.cursorcolumn = true
 
 -- Line number
 opt.number = true
@@ -66,8 +66,8 @@ opt.foldlevel = 99
 opt.fillchars = {
   foldopen = "",
   foldclose = "",
-  fold = " ",
-  foldsep = " ",
+  -- fold = " ",
+  -- foldsep = " ",
   diff = "╱",
   eob = " ",
 }

@@ -23,12 +23,14 @@ local TreeSitter = {
         "markdown_inline",
         "python",
         "tsx",
+        "norg",
+        "norg_meta",
         "typescript",
         "vim",
         "vimdoc",
         "yaml",
       },
-      ignore_install = { "diff" },
+      ignore_install = { "diff" , "org" },
       auto_Install = true,
       sync_install = false,
       highlight = {
@@ -36,7 +38,7 @@ local TreeSitter = {
         additional_vim_regex_highlighting = false,
       },
       indent = {
-        enable = false,
+        enable = true,
       },
       textobjects = {
         select = {
@@ -66,6 +68,6 @@ local Autotag = {
 }
 
 return {
-  -- TreeSitter,
-  -- Autotag,
+  TreeSitter,
+  Autotag,
 }
