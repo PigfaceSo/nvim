@@ -24,7 +24,7 @@ local TreeSitter = {
         "python",
         "tsx",
         "norg",
-        "norg_meta",
+        --"norg_meta",
         "typescript",
         "vim",
         "vimdoc",

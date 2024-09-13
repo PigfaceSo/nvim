@@ -100,7 +100,7 @@ local Lsp = {
         "lua_ls",
         "pyright",
         "tailwindcss",
-        "tsserver",
+        "ts_ls",
       },
       handlers = handlers,
     })

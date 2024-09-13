@@ -38,6 +38,6 @@ local orgmode = {
 }
 
 return {
-  neorg,
-  -- orgmode,
+  -- neorg,
+  orgmode,
 }
