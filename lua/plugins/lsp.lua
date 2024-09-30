@@ -92,10 +92,10 @@ local Lsp = {
     -- Setup Server
     mason_lsp.setup({
       ensure_installed = {
-        "bashls",
+        -- "bashls",
         "clangd",
         "cssls",
-        "eslint",
+        -- "eslint",
         "html",
         "lua_ls",
         "pyright",
