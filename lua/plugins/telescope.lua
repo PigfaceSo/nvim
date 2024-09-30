@@ -151,5 +151,5 @@ Telescope.file_explorer = {
 
 return {
   Telescope.default,
-  -- Telescope.file_explorer,
+  Telescope.file_explorer,
 }

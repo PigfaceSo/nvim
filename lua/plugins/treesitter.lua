@@ -23,7 +23,7 @@ local TreeSitter = {
         "markdown_inline",
         "python",
         "tsx",
-        "norg",
+        -- "norg",
         --"norg_meta",
         "typescript",
         "vim",

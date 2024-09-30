@@ -55,6 +55,6 @@ local Diffview = {
 
 return {
   Git,
-  -- GitSign,
-  Diffview,
+  GitSign,
+  -- Diffview,
 }

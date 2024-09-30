@@ -39,5 +39,5 @@ local orgmode = {
 
 return {
   -- neorg,
-  orgmode,
+  -- orgmode,
 }

@@ -14,7 +14,7 @@ opt.termguicolors = true
 
 opt.mouse = "a"
 opt.cursorline = true
-opt.cursorcolumn = true
+opt.cursorcolumn = false
 
 -- Line number
 opt.number = true
@@ -26,6 +26,7 @@ opt.laststatus = 0
 opt.cmdheight = 1
 opt.showcmd = true
 opt.showmode = true
+opt.showmatch = true
 
 
 -- Statuscolumn
@@ -38,6 +39,7 @@ opt.splitright = true
 
 -- Warp text
 opt.wrap = false
+
 -- Scrolloff
 opt.scrolloff = 10
 opt.sidescrolloff = 12
@@ -53,7 +55,7 @@ opt.shiftwidth = 2
 opt.shiftround = true
 
 -- Indent
-opt.autoindent = false
+opt.autoindent = true
 opt.smartindent = true
 opt.formatexpr = "v:lua.require('conform').formatexpr()"
 
@@ -74,7 +76,7 @@ opt.fillchars = {
 
 -- List
 opt.listchars = {
-  tab = ">>",
+  tab = "  ",
   multispace = "·",
   trail = "·",
 }
@@ -84,7 +86,7 @@ opt.list = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
-opt.hlsearch = false
+opt.hlsearch = true
 opt.inccommand = "split"
 
 -- File
@@ -93,8 +95,9 @@ opt.swapfile = false
 opt.undofile = true
 
 -- Other options
-opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus"
 opt.timeout = true
 opt.timeoutlen = 3000
+opt.ttimeoutlen = 10
 opt.confirm = true
 opt.updatetime = 200

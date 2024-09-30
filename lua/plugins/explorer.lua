@@ -118,5 +118,5 @@ local Minifiles = {
 return {
   -- NeoTree,
   -- Oil,
-  Minifiles,
+  -- Minifiles,
 }
