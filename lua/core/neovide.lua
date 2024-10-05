@@ -10,7 +10,7 @@ if vim.g.neovide then
   vim.g.neovide_padding_right = 0
   vim.g.neovide_padding_left = 0
 
-  vim.g.neovide_window_blurred = true
+  vim.g.neovide_window_blurred = false
   vim.g.neovide_refresh_rate = 60
 
   vim.g.neovide_position_animation_length = 0
