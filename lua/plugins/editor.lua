@@ -20,7 +20,9 @@ local Undotree = {
     { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Undotree" },
   },
   init = function()
-    -- vim.g.undotree_DiffCommand = "fc"
+    if vim.fn.has('win64') then
+      vim.g.undotree_DiffCommand = "fc"
+    end
     vim.g.undotree_WindowLayout = 1
     vim.g.undotree_SplitWidth = 20
     vim.g.undotree_SetFocusWhenToggle = 1
