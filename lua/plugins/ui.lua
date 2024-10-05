@@ -16,15 +16,15 @@ Dashboard.plugin = {
       evaluate_single = true,
       header = Dashboard.header,
       items = {
-        { name = "Find File", action = "Telescope find_files", section = "Search" },
-        { name = "Old File", action = "Telescope oldfiles", section = "Search" },
-        { name = "Config", action = "Telescope find_files " .. "cwd=" .. vim.fn.stdpath("config"), section = "Search" },
-        { name = "Theme", action = "Telescope colorscheme", section = "Search" },
-        { name = "Help", action = "Telescope help_tags ", section = "Search" },
-        { name = "Restore Session", action = "lua require('persistence').load()", section = "Action" },
-        { name = "Mason", action = "Mason", section = "Action" },
-        { name = "Lazy", action = "Lazy", section = "Action" },
-        { name = "Quit", action = "qall", section = "Action" },
+        { name = "Find File",       action = "Telescope find_files",                                        section = "Search" },
+        { name = "Old File",        action = "Telescope oldfiles",                                          section = "Search" },
+        { name = "Config",          action = "Telescope find_files " .. "cwd=" .. vim.fn.stdpath("config"), section = "Search" },
+        { name = "Theme",           action = "Telescope colorscheme",                                       section = "Search" },
+        { name = "Help",            action = "Telescope help_tags ",                                        section = "Search" },
+        { name = "Restore Session", action = "lua require('persistence').load()",                           section = "Action" },
+        { name = "Mason",           action = "Mason",                                                       section = "Action" },
+        { name = "Lazy",            action = "Lazy",                                                        section = "Action" },
+        { name = "Quit",            action = "qall",                                                        section = "Action" },
       },
       footer = Dashboard.footer,
     })
@@ -113,9 +113,9 @@ local Indent_Backline = {
 }
 
 return {
-  Dashboard.plugin,
-  -- Statusline,
+  -- Dashboard.plugin,
+  Statusline,
   -- Dressing,
-  -- Fidget,
+  Fidget,
   -- Indent_Backline,
 }

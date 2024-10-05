@@ -22,7 +22,7 @@ local Undotree = {
   init = function()
     vim.g.undotree_DiffCommand = "fc"
     vim.g.undotree_WindowLayout = 1
-    vim.g.undotree_SplitWidth = 50
+    vim.g.undotree_SplitWidth = 20
     vim.g.undotree_SetFocusWhenToggle = 1
   end,
 }
@@ -68,8 +68,8 @@ local Leap = {
 
 return {
   Comment,
-  Mini_ai,
-  -- Undotree,
-  Session,
+  -- Mini_ai,
+  Undotree,
+  -- Session,
   Leap,
 }

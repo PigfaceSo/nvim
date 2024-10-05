@@ -1,9 +1,9 @@
 local Git = {
   "tpope/vim-fugitive",
   enabled = true,
-  cmd = "Git" ,
+  cmd = "Git",
   keys = {
-    { "<leader>go" , "<cmd>Git<cr>" , desc = "Git" }
+    { "<leader>go", "<cmd>Git<cr>", desc = "Git" }
   },
 }
 
@@ -13,13 +13,13 @@ local GitSign = {
   event = "VeryLazy",
   cmd = "Gitsigns",
   keys = {
-    { "<leader>hs" , "<cmd>Gitsigns stage_hunk<cr>" , desc = "Stage Hunk" },
-    { "<leader>hr" , "<cmd>Gitsigns reset_hunk<cr>" , desc = "Reset Hunk" },
-    { "<leader>hS" , "<cmd>Gitsigns stage_buffer<cr>" , desc = "Stage Buffer" },
-    { "<leader>hR" , "<cmd>Gitsigns reset_buffer<cr>" , desc = "Reset Buffer" },
-    { "<leader>hp" , "<cmd>Gitsigns preview_hunk<cr>" , desc = "Preview Hunk" },
-    { "<leader>hd" , "<cmd>Gitsigns diffthis<cr>" , desc = "Git Diff" },
-    { "<leader>tb" , "<cmd>Gitsigns toggle_current_line_blame<cr>" , desc = "Toggle Line Blame" },
+    { "<leader>hs", "<cmd>Gitsigns stage_hunk<cr>",                desc = "Stage Hunk" },
+    { "<leader>hr", "<cmd>Gitsigns reset_hunk<cr>",                desc = "Reset Hunk" },
+    { "<leader>hS", "<cmd>Gitsigns stage_buffer<cr>",              desc = "Stage Buffer" },
+    { "<leader>hR", "<cmd>Gitsigns reset_buffer<cr>",              desc = "Reset Buffer" },
+    { "<leader>hp", "<cmd>Gitsigns preview_hunk<cr>",              desc = "Preview Hunk" },
+    { "<leader>hd", "<cmd>Gitsigns diffthis<cr>",                  desc = "Git Diff" },
+    { "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Line Blame" },
   },
   opts = {
     signs = {
@@ -48,13 +48,13 @@ local Diffview = {
   },
   cmd = "DiffviewOpen",
   keys = {
-    { "<leader>gdo" , "<cmd>DiffviewOpen<cr>" , desc = "DiffviewOpen" },
-    { "<leader>gdc" , "<cmd>DiffviewClose<cr>" , desc = "DiffviewClose" },
+    { "<leader>gdo", "<cmd>DiffviewOpen<cr>",  desc = "DiffviewOpen" },
+    { "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "DiffviewClose" },
   },
 }
 
 return {
   Git,
-  -- GitSign,
-  Diffview,
+  GitSign,
+  -- Diffview,
 }

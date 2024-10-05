@@ -13,7 +13,7 @@ opt.encoding = "utf-8"
 opt.termguicolors = true
 
 opt.mouse = "a"
-opt.cursorline = false
+opt.cursorline = true
 opt.cursorcolumn = false
 
 -- Line number
@@ -53,7 +53,7 @@ opt.shiftwidth = 2
 opt.shiftround = true
 
 -- Indent
-opt.autoindent = false
+opt.autoindent = true
 opt.smartindent = true
 opt.formatexpr = "v:lua.require('conform').formatexpr()"
 
@@ -93,7 +93,7 @@ opt.swapfile = false
 opt.undofile = true
 
 -- Other options
-opt.clipboard = "unnamedplus"
+-- opt.clipboard = "unnamedplus"
 opt.timeout = true
 opt.timeoutlen = 3000
 opt.confirm = true

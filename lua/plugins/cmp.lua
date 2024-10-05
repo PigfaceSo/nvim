@@ -1,9 +1,9 @@
 local Cmp = {
   "hrsh7th/nvim-cmp",
   dependencies = {
-    "hrsh7th/cmp-nvim-lsp", -- LSP completenion
-    "hrsh7th/cmp-buffer", -- text completenion
-    "hrsh7th/cmp-path", -- path completenion
+    "hrsh7th/cmp-nvim-lsp",                   -- LSP completenion
+    "hrsh7th/cmp-buffer",                     -- text completenion
+    "hrsh7th/cmp-path",                       -- path completenion
     "hrsh7th/cmp-nvim-lsp-signature-help",
     "roobert/tailwindcss-colorizer-cmp.nvim", -- Tailwind
     -- "hrsh7th/cmp-cmdline", -- cmd completenion
@@ -84,6 +84,6 @@ local CmpMini = {
 }
 
 return {
-  -- Cmp,
-  CmpMini,
+  Cmp,
+  -- CmpMini,
 }

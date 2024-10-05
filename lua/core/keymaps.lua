@@ -33,7 +33,7 @@ map("n", "<leader>j", "<cmd>jumps<cr>", { desc = "Jumplist" })
 map("n", "J", "maJ`a<cmd>delmarks a<cr>", { desc = "Join", silent = true })
 
 -- Exit Insert mode
-map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+-- map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
 
 -- Move text
 map("v", "J", ":m '>+1<CR>gv=gv")
