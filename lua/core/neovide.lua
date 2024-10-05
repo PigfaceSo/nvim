@@ -1,6 +1,4 @@
 if vim.g.neovide then
-  -- vim.cmd.colorscheme("night-owl")
-  -- vim.cmd.colorscheme("tokyonight-night")
   vim.g.neovide_theme = 'bambo'
 
   vim.o.guifont = "JetBrainsMonoNL Nerd Font:h10"

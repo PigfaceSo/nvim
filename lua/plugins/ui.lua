@@ -113,7 +113,7 @@ local Indent_Backline = {
 }
 
 return {
-  -- Dashboard.plugin,
+  Dashboard.plugin,
   Statusline,
   -- Dressing,
   Fidget,

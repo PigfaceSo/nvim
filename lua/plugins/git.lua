@@ -1,7 +1,7 @@
 local Git = {
   "tpope/vim-fugitive",
   enabled = true,
-  cmd = "Git",
+  cmd = { "G","Git" },
   keys = {
     { "<leader>go", "<cmd>Git<cr>", desc = "Git" }
   },

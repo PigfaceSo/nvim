@@ -70,6 +70,6 @@ return {
   Comment,
   -- Mini_ai,
   Undotree,
-  -- Session,
+  Session,
   Leap,
 }
