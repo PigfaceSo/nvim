@@ -26,6 +26,7 @@ opt.laststatus = 0
 opt.cmdheight = 1
 opt.showcmd = true
 opt.showmode = true
+opt.showmatch = true
 
 
 -- Statuscolumn
@@ -38,6 +39,7 @@ opt.splitright = true
 
 -- Warp text
 opt.wrap = false
+
 -- Scrolloff
 opt.scrolloff = 10
 opt.sidescrolloff = 12
@@ -66,15 +68,15 @@ opt.foldlevel = 99
 opt.fillchars = {
   foldopen = "",
   foldclose = "",
-  fold = " ",
-  foldsep = " ",
+  -- fold = " ",
+  -- foldsep = " ",
   diff = "╱",
   eob = " ",
 }
 
 -- List
 opt.listchars = {
-  tab = ">>",
+  tab = "  ",
   multispace = "·",
   trail = "·",
 }
@@ -84,7 +86,7 @@ opt.list = true
 opt.ignorecase = true
 opt.smartcase = true
 opt.incsearch = true
-opt.hlsearch = false
+opt.hlsearch = true
 opt.inccommand = "split"
 
 -- File
@@ -96,5 +98,6 @@ opt.undofile = true
 -- opt.clipboard = "unnamedplus"
 opt.timeout = true
 opt.timeoutlen = 3000
+opt.ttimeoutlen = 10
 opt.confirm = true
 opt.updatetime = 200

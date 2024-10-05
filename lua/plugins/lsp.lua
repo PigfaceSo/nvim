@@ -58,7 +58,7 @@ end
 local handlers = {
   function(server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup({
-      -- capabilities = require('cmp_nvim_lsp').default_capabilities()
+      capabilities = require('cmp_nvim_lsp').default_capabilities()
     })
   end,
   ["lua_ls"] = function()
@@ -92,15 +92,15 @@ local Lsp = {
     -- Setup Server
     mason_lsp.setup({
       ensure_installed = {
-        "bashls",
-        -- "clangd",
+        -- "bashls",
+        "clangd",
         "cssls",
-        "eslint",
+        -- "eslint",
         "html",
         "lua_ls",
         "pyright",
         "tailwindcss",
-        "tsserver",
+        "ts_ls",
       },
       handlers = handlers,
     })

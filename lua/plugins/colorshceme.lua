@@ -5,25 +5,28 @@ return {
   --   lazy = false,
   --   opts = {},
   --   config = function()
-  --     vim.cmd.colorscheme("night-owl")
+  --     -- vim.cmd.colorscheme("night-owl")
   --   end,
   -- },
+
   -- {
   --   "catppuccin/nvim",
   --   name = "catppuccin",
+  --   lazy = false,
   --   priority = 1000,
   --   opts = {},
-  --   -- config = function()
-  --   --   vim.cmd.colorscheme("catppuccin")
-  --   -- end,
+  --   config = function()
+  --     -- vim.cmd.colorscheme("catppuccin")
+  --   end,
   -- },
+
   -- {
   --   "folke/tokyonight.nvim",
   --   priority = 100,
   --   lazy = false,
   --   opts = {},
   --   config = function()
-  --     vim.cmd.colorscheme("tokyonight-night")
+  --     -- vim.cmd.colorscheme("tokyonight-night")
   --   end,
   -- },
 

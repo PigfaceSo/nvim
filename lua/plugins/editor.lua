@@ -20,7 +20,7 @@ local Undotree = {
     { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Undotree" },
   },
   init = function()
-    vim.g.undotree_DiffCommand = "fc"
+    -- vim.g.undotree_DiffCommand = "fc"
     vim.g.undotree_WindowLayout = 1
     vim.g.undotree_SplitWidth = 20
     vim.g.undotree_SetFocusWhenToggle = 1

@@ -13,7 +13,6 @@ local Cmp = {
   },
   enabled = true,
   event = "InsertEnter",
-  -- event = "BufEnter",
   config = function()
     local cmp = require("cmp")
     -- local luasnip = require("luasnip")
@@ -53,6 +52,8 @@ local Cmp = {
         -- { name = "luasnip" }, -- For luasnip users.
         { name = "buffer" },
         { name = "path" },
+        { name = "orgmode" },
+        { name = "neorg" },
       }),
     })
   end,
