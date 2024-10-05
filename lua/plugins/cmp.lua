@@ -28,7 +28,7 @@ local Cmp = {
       --   end,
       -- },
       completion = {
-        completeopt = "menu,menuone,noselect",
+        completeopt = "menuone,noselect",
       },
       formatting = {
         format = require("tailwindcss-colorizer-cmp").formatter,
