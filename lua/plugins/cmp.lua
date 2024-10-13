@@ -84,7 +84,22 @@ local CmpMini = {
   end,
 }
 
+local Coq = {
+  "ms-jpq/coq_nvim",
+  branch = "coq",
+  dependencies = {
+     { "ms-jpq/coq.artifacts", branch = "artifacts" },
+  },
+  enabled = true,
+  init = function()
+    vim.g.coq_settings = {
+      auto_start = true,
+    }
+  end,
+}
+
 return {
-  Cmp,
+  -- Cmp,
   -- CmpMini,
+  Coq,
 }

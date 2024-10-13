@@ -73,5 +73,5 @@ return {
   -- Mini_ai,
   Undotree,
   Session,
-  Leap,
+  -- Leap,
 }

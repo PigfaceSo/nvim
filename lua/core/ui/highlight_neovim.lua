@@ -10,10 +10,10 @@ hl(0, "NormalNC", {
   bg = "none",
   ctermbg = "none",
 })
-hl(0, "NormalFloat", {
-  bg = "none",
-  ctermbg = "none",
-})
+-- hl(0, "NormalFloat", {
+--   bg = "none",
+--   ctermbg = "none",
+-- })
 hl(0, "EndOfBuffer", {
   bg = "none",
   ctermbg = "none",
