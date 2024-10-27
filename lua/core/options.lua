@@ -24,7 +24,7 @@ opt.relativenumber = true
 -- StatusLine
 opt.ruler = true
 opt.laststatus = 0
-opt.cmdheight = 1
+opt.cmdheight = 0
 opt.showcmd = true
 opt.showmode = true
 opt.showmatch = true

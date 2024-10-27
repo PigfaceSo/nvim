@@ -111,20 +111,44 @@ local WhichKey = {
   opts = {},
 }
 
+
 local Indent_Backline = {
   "lukas-reineke/indent-blankline.nvim",
   enabled = true,
   event = "VeryLazy",
   main = "ibl",
-  opts = {
-    indent = {
-      char = "│",
-      tab_char = "│",
-    },
-    scope = {
-      enabled = false,
-    },
-  },
+  config = function()
+    local hooks = require "ibl.hooks"
+    local highlight_indent = {
+      "RainbowRed",
+      "RainbowYellow",
+      "RainbowBlue",
+      "RainbowOrange",
+      "RainbowGreen",
+      "RainbowViolet",
+      "RainbowCyan",
+    }
+    hooks.register(hooks.type.HIGHLIGHT_SETUP, function()
+      vim.api.nvim_set_hl(0, "RainbowRed", { fg = "#E06C75" })
+      vim.api.nvim_set_hl(0, "RainbowYellow", { fg = "#E5C07B" })
+      vim.api.nvim_set_hl(0, "RainbowBlue", { fg = "#61AFEF" })
+      vim.api.nvim_set_hl(0, "RainbowOrange", { fg = "#D19A66" })
+      vim.api.nvim_set_hl(0, "RainbowGreen", { fg = "#98C379" })
+      vim.api.nvim_set_hl(0, "RainbowViolet", { fg = "#C678DD" })
+      vim.api.nvim_set_hl(0, "RainbowCyan", { fg = "#56B6C2" })
+    end)
+
+    require("ibl").setup({
+      indent = {
+        char = "│",
+        tab_char = "│",
+        highlight = highlight_indent,
+      },
+      scope = {
+        enabled = false,
+      },
+    })
+  end
 }
 
 return {
@@ -134,5 +158,5 @@ return {
   -- Statusline,
   -- Dressing,
   -- Fidget,
-  -- Indent_Backline,
+  Indent_Backline,
 }
