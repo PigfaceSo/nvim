@@ -96,6 +96,21 @@ local Fidget = {
   end,
 }
 
+local MiniCursorWord = {
+   "echasnovski/mini.cursorword",
+   lazy = false,
+   enabled = true,
+   version = false,
+   opts = {},
+}
+
+local WhichKey = {
+  "folke/which-key.nvim",
+  enabled = true,
+  event = "VeryLazy",
+  opts = {},
+}
+
 local Indent_Backline = {
   "lukas-reineke/indent-blankline.nvim",
   enabled = true,
@@ -114,6 +129,8 @@ local Indent_Backline = {
 
 return {
   Dashboard.plugin,
+  WhichKey,
+  MiniCursorWord,
   -- Statusline,
   -- Dressing,
   -- Fidget,
