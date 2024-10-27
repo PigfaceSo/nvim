@@ -1,6 +1,6 @@
 local Dashboard = {}
 
-Dashboard.header = require("core.ui.header_anime").g
+Dashboard.header = require("core.ui.header_anime").f
 
 Dashboard.footer = ""
 
@@ -114,8 +114,8 @@ local Indent_Backline = {
 
 return {
   Dashboard.plugin,
-  Statusline,
+  -- Statusline,
   -- Dressing,
-  Fidget,
+  -- Fidget,
   -- Indent_Backline,
 }

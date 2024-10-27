@@ -59,7 +59,7 @@ local handlers = {
   function(server_name) -- default handler (optional)
     require("lspconfig")[server_name].setup({
       -- capabilities = require('cmp_nvim_lsp').default_capabilities(),
-      require("coq").lsp_ensure_capabilities()
+      -- require("coq").lsp_ensure_capabilities()
     })
   end,
   ["lua_ls"] = function()
@@ -101,7 +101,9 @@ local Lsp = {
         "lua_ls",
         "pyright",
         "tailwindcss",
-        "tsserver",
+        "ts_ls",
+        -- "texlab",
+        -- "ltex",
       },
       handlers = handlers,
     })

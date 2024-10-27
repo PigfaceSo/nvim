@@ -20,9 +20,6 @@ local Undotree = {
     { "<leader>u", "<cmd>UndotreeToggle<cr>", desc = "Undotree" },
   },
   init = function()
-    if vim.fn.has('win64') then
-      vim.g.undotree_DiffCommand = "fc"
-    end
     vim.g.undotree_WindowLayout = 1
     vim.g.undotree_SplitWidth = 20
     vim.g.undotree_SetFocusWhenToggle = 1
@@ -49,6 +46,19 @@ local Trouble = {
   },
 }
 
+local LaTex = {
+  "lervag/vimtex",
+  lazy = false,     -- we don't want to lazy load VimTeX
+  -- tag = "v2.15", -- uncomment to pin to a specific release
+  init = function()
+    -- VimTeX configuration goes here, e.g.
+    vim.g.vimtex_view_method = "zathura"
+    -- vim.g.vimtex_view_general_viewer = "okular"
+    -- vim.g.vimtex_view_general_options = "--unique file:@pdf\#src:@line@tex"
+
+  end
+}
+
 local Leap = {
   "ggandor/leap.nvim",
   enabled = true,
@@ -70,6 +80,7 @@ local Leap = {
 
 return {
   Comment,
+  -- LaTex,
   -- Mini_ai,
   Undotree,
   Session,

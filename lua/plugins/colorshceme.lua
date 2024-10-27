@@ -5,7 +5,7 @@ return {
   --   lazy = false,
   --   opts = {},
   --   config = function()
-  --     -- vim.cmd.colorscheme("night-owl")
+  --     vim.cmd.colorscheme("night-owl")
   --   end,
   -- },
 
@@ -20,25 +20,25 @@ return {
   --   end,
   -- },
 
-  -- {
-  --   "folke/tokyonight.nvim",
-  --   priority = 100,
-  --   lazy = false,
-  --   opts = {},
-  --   config = function()
-  --     -- vim.cmd.colorscheme("tokyonight-night")
-  --   end,
-  -- },
-
   {
-    'ribru17/bamboo.nvim',
+    "folke/tokyonight.nvim",
+    priority = 100,
     lazy = false,
-    priority = 1000,
+    opts = {},
     config = function()
-      require('bamboo').setup {
-        -- optional configuration here
-      }
-      require('bamboo').load()
+      vim.cmd.colorscheme("tokyonight-night")
     end,
   },
+
+  -- {
+  --   'ribru17/bamboo.nvim',
+  --   lazy = false,
+  --   priority = 1000,
+  --   config = function()
+  --     require('bamboo').setup {
+  --       -- optional configuration here
+  --     }
+  --     require('bamboo').load()
+  --   end,
+  -- },
 }

@@ -68,6 +68,6 @@ local Autotag = {
 }
 
 return {
-  TreeSitter,
-  Autotag,
+  -- TreeSitter,
+  -- Autotag,
 }
