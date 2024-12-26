@@ -19,9 +19,9 @@ local neorg = {
 }
 
 local orgmode = {
-  'nvim-orgmode/orgmode',
-  event = 'VeryLazy',
-  ft = { 'org' },
+  "nvim-orgmode/orgmode",
+  event = "VeryLazy",
+  ft = { "org" },
   config = function()
     -- Setup orgmode
     require('orgmode').setup({

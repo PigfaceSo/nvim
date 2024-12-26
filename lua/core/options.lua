@@ -1,12 +1,10 @@
 local opt = vim.opt
 
+vim.cmd.colorscheme("vim")
+
 vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
 vim.g.loaded_perl_provider = 0
-
-if vim.fn.has("win64") then
-  opt.shell = "cmd.exe"
-end
 
 opt.encoding = "utf-8"
 
@@ -24,7 +22,7 @@ opt.relativenumber = true
 -- StatusLine
 opt.ruler = true
 opt.laststatus = 0
-opt.cmdheight = 0
+opt.cmdheight = 1
 opt.showcmd = true
 opt.showmode = true
 opt.showmatch = true
@@ -58,7 +56,7 @@ opt.shiftround = true
 -- Indent
 opt.autoindent = true
 opt.smartindent = true
-opt.formatexpr = "v:lua.require('conform').formatexpr()"
+-- opt.formatexpr = "v:lua.require('conform').formatexpr()"
 
 -- Fold
 opt.foldenable = false

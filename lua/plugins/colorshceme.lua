@@ -20,15 +20,15 @@ return {
   --   end,
   -- },
 
-  {
-    "folke/tokyonight.nvim",
-    priority = 100,
-    lazy = false,
-    opts = {},
-    config = function()
-      vim.cmd.colorscheme("tokyonight-night")
-    end,
-  },
+  -- {
+  --   "folke/tokyonight.nvim",
+  --   priority = 100,
+  --   lazy = false,
+  --   opts = {},
+  --   config = function()
+  --     -- vim.cmd.colorscheme("tokyonight-night")
+  --   end,
+  -- },
 
   -- {
   --   'ribru17/bamboo.nvim',
@@ -40,5 +40,9 @@ return {
   --     }
   --     require('bamboo').load()
   --   end,
+  -- },
+
+  -- {
+  --   "bluz71/vim-moonfly-colors",
   -- },
 }
