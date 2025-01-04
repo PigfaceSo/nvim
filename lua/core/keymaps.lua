@@ -13,6 +13,7 @@
 
 local map = vim.keymap.set
 
+map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "FileExplorer", silent = true })
 map("n", "L", "<cmd>bNext<cr>", { desc = "NextBuffer", silent = true })
 map("n", "H", "<cmd>bprevious<cr>", { desc = "PreBuffer", silent = true })
 map("n", "<C-w>d", "<cmd>bdelete<cr>", { desc = "BufDelete", silent = true })

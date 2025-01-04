@@ -1,4 +1,5 @@
 {
+  "copilot.vim": { "branch": "release", "commit": "87038123804796ca7af20d1b71c3428d858a9124" },
   "gitsigns.nvim": { "branch": "main", "commit": "ee7634ab4f0a6606438fe13e16cbf2065589a5ed" },
   "lazy.nvim": { "branch": "main", "commit": "cf8ecc2c5e4332760431a33534240b0cbc6680ab" },
   "mason-lspconfig.nvim": { "branch": "main", "commit": "7446f47b3dfb7df801f31a6f6783c2ad119a6935" },
@@ -11,7 +12,6 @@
   "nvim-web-devicons": { "branch": "master", "commit": "19d257cf889f79f4022163c3fbb5e08639077bd8" },
   "persistence.nvim": { "branch": "main", "commit": "f6aad7dde7fcf54148ccfc5f622c6d5badd0cc3d" },
   "plenary.nvim": { "branch": "master", "commit": "2d9b06177a975543726ce5c73fca176cedbffe9d" },
-  "telescope-file-browser.nvim": { "branch": "master", "commit": "626998e5c1b71c130d8bc6cf7abb6709b98287bb" },
   "telescope.nvim": { "branch": "master", "commit": "a0bbec21143c7bc5f8bb02e0005fa0b982edc026" },
   "ts-comments.nvim": { "branch": "main", "commit": "2002692ad1d3f6518d016550c20c2a890f0cbf0e" },
   "undotree": { "branch": "master", "commit": "78b5241191852ffa9bb5da5ff2ee033160798c3b" },

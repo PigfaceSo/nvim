@@ -11,7 +11,7 @@ opt.encoding = "utf-8"
 opt.termguicolors = true
 
 opt.mouse = "a"
-opt.guicursor = "n-v-i-c:block-Cursor"
+opt.guicursor = "n-v-i-c:blinkon1"
 opt.cursorline = true
 opt.cursorcolumn = false
 

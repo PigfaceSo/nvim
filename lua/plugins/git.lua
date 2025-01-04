@@ -53,8 +53,15 @@ local Diffview = {
   },
 }
 
+local Copilot = {
+  "github/copilot.vim",
+  enabled = true,
+  cmd = "Copilot",
+}
+
 return {
   Git,
   GitSign,
+  Copilot,
   -- Diffview,
 }
