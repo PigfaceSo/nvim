@@ -14,22 +14,12 @@ local TreeSitter = {
         "arduino",
         "bash",
         "css",
-        "dockerfile",
-        "gitignore",
         "html",
         "javascript",
-        "json",
         "lua",
-        "markdown",
-        "markdown_inline",
         "python",
         "tsx",
-        -- "norg",
-        --"norg_meta",
         "typescript",
-        "vim",
-        "vimdoc",
-        "yaml",
       },
       ignore_install = { "diff" , "org" },
       auto_Install = true,
@@ -69,6 +59,6 @@ local Autotag = {
 }
 
 return {
-  -- TreeSitter,
-  -- Autotag,
+  TreeSitter,
+  Autotag,
 }

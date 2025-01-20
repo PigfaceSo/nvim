@@ -16,7 +16,7 @@ return {
   --   priority = 1000,
   --   opts = {},
   --   config = function()
-  --     -- vim.cmd.colorscheme("catppuccin")
+  --     vim.cmd.colorscheme("catppuccin")
   --   end,
   -- },
 
@@ -30,19 +30,25 @@ return {
   --   end,
   -- },
 
-  -- {
-  --   'ribru17/bamboo.nvim',
-  --   lazy = false,
-  --   priority = 1000,
-  --   config = function()
-  --     require('bamboo').setup {
-  --       -- optional configuration here
-  --     }
-  --     require('bamboo').load()
-  --   end,
-  -- },
-
-  -- {
-  --   "bluz71/vim-moonfly-colors",
-  -- },
+  {
+    'ribru17/bamboo.nvim',
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('bamboo').setup {
+        -- optional configuration here
+        code_style = {
+          comments = { italic = false },
+          conditionals = { italic = false },
+          keywords = {},
+          functions = {},
+          namespaces = { italic = false },
+          parameters = { italic = false },
+          strings = {},
+          variables = {},
+        },
+      }
+      require('bamboo').load()
+    end,
+  },
 }

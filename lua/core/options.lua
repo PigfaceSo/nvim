@@ -1,6 +1,7 @@
 local opt = vim.opt
 
-vim.cmd.colorscheme("vim")
+-- vim.cmd.colorscheme("torte")
+opt.background = "dark"
 
 vim.g.loaded_node_provider = 0
 vim.g.loaded_python3_provider = 0
