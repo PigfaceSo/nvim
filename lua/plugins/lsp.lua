@@ -94,16 +94,16 @@ local Lsp = {
     -- Setup Server
     mason_lsp.setup({
       ensure_installed = {
-        -- "bashls",
+        "bashls",
         "clangd",
         "cssls",
         -- "eslint",
         "html",
         "lua_ls",
         "pyright",
-        "tailwindcss",
-        "ts_ls",
-        -- "texlab",
+        -- "tailwindcss",
+        -- "ts_ls",
+        "texlab",
         -- "ltex",
       },
       handlers = handlers,

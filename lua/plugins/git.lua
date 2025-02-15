@@ -60,8 +60,8 @@ local Copilot = {
 }
 
 return {
-  Git,
-  GitSign,
-  Copilot,
+  -- Git,
+  -- GitSign,
+  -- Copilot,
   -- Diffview,
 }
