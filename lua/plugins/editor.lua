@@ -12,6 +12,15 @@ local Mini_ai = {
   opts = {}
 }
 
+local AutoClose = {
+  "windwp/nvim-autopairs",
+  enabled = true,
+  event = "InsertEnter",
+  config = function()
+    require("nvim-autopairs").setup{}
+  end
+}
+
 local Undotree = {
   "mbbill/undotree",
   enabled = true,
@@ -81,6 +90,7 @@ local Leap = {
 
 return {
   Comment,
+  AutoClose,
   LaTex,
   -- Mini_ai,
   Undotree,

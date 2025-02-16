@@ -21,6 +21,13 @@ vim.api.nvim_create_autocmd({ "BufNewFile", "BufRead" }, {
   end,
 })
 
+vim.api.nvim_create_autocmd("BufWritePost",{
+  pattern = "*.ino",
+  callback = function()
+    vim.cmd[[! pgrep -x arduino-cli > /dev/null && pkill arduino-cli; alacritty -e sh -c 'arduino-cli compile -u' && alacritty -e sh -c 'arduino-cli monitor --timestamp' &]]
+  end,
+})
+
 -- vim.api.nvim_create_autocmd("BufWritePre", {
 --   callback = function()
 --     vim.lsp.buf.format()
