@@ -16,7 +16,7 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup("plugins", {
   defaults = {
-    lazy = true,
+    lazy = false,
   },
   install = {
     missing = true,
@@ -36,7 +36,7 @@ require("lazy").setup("plugins", {
         "gzip",
         "matchit",
         -- "matchparen",
-        -- "netrwPlugin",
+        "netrwPlugin",
         "tarPlugin",
         "tohtml",
         "tutor",

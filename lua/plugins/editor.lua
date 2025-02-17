@@ -5,6 +5,26 @@ local Comment = {
   opts = {},
 }
 
+local Nnn = {
+  "luukvbaal/nnn.nvim",
+  enabled = true,
+  keys = {
+    { "<leader>e", "<cmd>NnnExplorer<cr>", desc = "NnnExplorer" }
+  },
+  config = function()
+    require("nnn").setup {}
+  end
+}
+
+local ToggleTerm = {
+  "akinsho/toggleterm.nvim",
+  version = "*",
+  opts = {
+    open_mapping = [[<c-\>]],
+    direction = "float",
+  },
+}
+
 local Mini_ai = {
   "echasnovski/mini.ai",
   version = false,
@@ -17,7 +37,7 @@ local AutoClose = {
   enabled = true,
   event = "InsertEnter",
   config = function()
-    require("nvim-autopairs").setup{}
+    require("nvim-autopairs").setup {}
   end
 }
 
@@ -58,14 +78,21 @@ local Trouble = {
 local LaTex = {
   "lervag/vimtex",
   enabled = true,
-  lazy = false,     -- we don't want to lazy load VimTeX
+  -- lazy = false, -- we don't want to lazy load VimTeX
   -- tag = "v2.15", -- uncomment to pin to a specific release
+  ft = "tex",
   init = function()
     -- VimTeX configuration goes here, e.g.
+    -- vim.g.vimtex_view_method = "zathura"
+    -- vim.g.vimtex_view_method = "mupdf"
     vim.g.vimtex_view_method = "sioyek"
+    vim.g.vimtex_view_forward_search_on_start = false
+    vim.g.vimtex_compiler_latexmk = {
+      aux_dir = ".tex/",
+      out_dir = ""
+    }
     -- vim.g.vimtex_view_general_viewer = "okular"
     -- vim.g.vimtex_view_general_options = "--unique file:@pdf\#src:@line@tex"
-
   end
 }
 
@@ -83,7 +110,6 @@ local Leap = {
     leap.opts.preview_filter = function()
       return false
     end
-
     vim.api.nvim_set_hl(0, "LeapBackdrop", { link = "Comment" })
   end,
 }
@@ -91,9 +117,11 @@ local Leap = {
 return {
   Comment,
   AutoClose,
+  Nnn,
+  ToggleTerm,
   LaTex,
   -- Mini_ai,
   Undotree,
   Session,
-  -- Leap,
+  Leap,
 }

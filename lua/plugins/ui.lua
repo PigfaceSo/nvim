@@ -97,11 +97,11 @@ local Fidget = {
 }
 
 local MiniCursorWord = {
-   "echasnovski/mini.cursorword",
-   lazy = false,
-   enabled = true,
-   version = false,
-   opts = {},
+  "echasnovski/mini.cursorword",
+  lazy = false,
+  enabled = true,
+  version = false,
+  opts = {},
 }
 
 local WhichKey = {
@@ -153,7 +153,7 @@ local Indent_Backline = {
 
 return {
   Dashboard.plugin,
-  -- WhichKey,
+  WhichKey,
   MiniCursorWord,
   -- Statusline,
   -- Dressing,
