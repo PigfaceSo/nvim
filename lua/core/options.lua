@@ -11,7 +11,7 @@ opt.encoding = "utf-8"
 
 opt.termguicolors = true
 
-opt.mouse = "a"
+opt.mouse = ""
 -- opt.guicursor = "n-v-i-c:blinkon1"
 opt.cursorline = true
 opt.cursorcolumn = false
@@ -50,8 +50,8 @@ opt.pumheight = 10
 -- Tab / Space
 opt.expandtab = true
 opt.smarttab = true
-opt.tabstop = 2
-opt.shiftwidth = 2
+opt.tabstop = 4
+opt.shiftwidth = 4
 opt.shiftround = true
 
 -- Indent
