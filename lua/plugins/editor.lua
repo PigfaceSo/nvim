@@ -9,17 +9,6 @@ local Comment = {
     },
 }
 
-local Nnn = {
-    "luukvbaal/nnn.nvim",
-    enabled = true,
-    keys = {
-        { "<leader>e", "<cmd>NnnExplorer<cr>", desc = "NnnExplorer" }
-    },
-    config = function()
-        require("nnn").setup {}
-    end
-}
-
 local ToggleTerm = {
     "akinsho/toggleterm.nvim",
     version = "*",
@@ -133,7 +122,6 @@ return {
     Comment,
     AutoClose,
     Rename,
-    Nnn,
     ToggleTerm,
     LaTex,
     -- Mini_ai,
