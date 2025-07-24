@@ -50,8 +50,8 @@ opt.pumheight = 10
 -- Tab / Space
 opt.expandtab = true
 opt.smarttab = true
-opt.tabstop = 4
-opt.shiftwidth = 4
+opt.tabstop = 2
+opt.shiftwidth = 2
 opt.shiftround = true
 
 -- Indent
@@ -66,19 +66,19 @@ opt.foldmethod = "expr"
 opt.foldtext = ""
 opt.foldlevel = 99
 opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  -- fold = " ",
-  -- foldsep = " ",
-  diff = "╱",
-  eob = " ",
+    foldopen = "",
+    foldclose = "",
+    -- fold = " ",
+    -- foldsep = " ",
+    diff = "╱",
+    eob = " ",
 }
 
 -- List
 opt.listchars = {
-  tab = "  ",
-  multispace = "·",
-  trail = "·",
+    tab = "  ",
+    multispace = "·",
+    trail = "·",
 }
 opt.list = true
 
