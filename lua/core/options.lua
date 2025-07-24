@@ -11,7 +11,7 @@ opt.encoding = "utf-8"
 
 opt.termguicolors = true
 
-opt.mouse = ""
+opt.mouse = "a"
 -- opt.guicursor = "n-v-i-c:blinkon1"
 opt.cursorline = true
 opt.cursorcolumn = false
@@ -66,19 +66,19 @@ opt.foldmethod = "expr"
 opt.foldtext = ""
 opt.foldlevel = 99
 opt.fillchars = {
-    foldopen = "",
-    foldclose = "",
-    -- fold = " ",
-    -- foldsep = " ",
-    diff = "╱",
-    eob = " ",
+  foldopen = "",
+  foldclose = "",
+  -- fold = " ",
+  -- foldsep = " ",
+  diff = "╱",
+  eob = " ",
 }
 
 -- List
 opt.listchars = {
-    tab = "  ",
-    multispace = "·",
-    trail = "·",
+  tab = "  ",
+  multispace = "·",
+  trail = "·",
 }
 opt.list = true
 
