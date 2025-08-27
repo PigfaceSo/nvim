@@ -88,7 +88,6 @@ local Lsp = {
   },
   enabled = true,
   event = { "BufReadPre", "BufNewFile" },
-  -- event = "VeryLazy",
   config = function()
     local mason_lsp = require("mason-lspconfig")
 

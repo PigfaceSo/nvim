@@ -6,7 +6,7 @@ local TreeSitter = {
     "nvim-treesitter/nvim-treesitter-context",     -- Show function on top line
   },
   version = false,
-  event = { "BufReadPost", "BufNewFile" },
+  event = { "BufReadPre", "BufNewFile" },
   bulid = ":TSUpdate",
   config = function()
     require("nvim-treesitter.configs").setup({
