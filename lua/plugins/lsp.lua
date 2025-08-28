@@ -42,8 +42,7 @@ local LSP_Keybind = function()
     group = vim.api.nvim_create_augroup('user_lsp_attach', { clear = true }),
     callback = function(event)
       map("n", "gd", function() lsp_Buf.definition() end, { desc = "Go to Definition (LSP)", buffer = event.buf })
-      map("n", "K", function() lsp_Buf.hover() end, { desc = "Info Hover (LSP)", buffer = event.buf })
-      -- map("n", "<leader>ls", function() lsp_Buf.workspace_symbol() end, { desc = "Workspace Symbol (LSP)" , buffer = event.buf })
+      map("n", "K", function() lsp_Buf.hover() end, { desc = "Info Hover (LSP)", buffer = event.buf }) -- map("n", "<leader>ls", function() lsp_Buf.workspace_symbol() end, { desc = "Workspace Symbol (LSP)" , buffer = event.buf })
       map("n", "<leader>ld", function() diagnostic.open_float() end,
         { desc = "Open Float (LSP)", buffer = event.buf })
       map("n", "]d", function() diagnostic.goto_next() end, { desc = "Go Next (LSP)", buffer = event.buf })
@@ -100,13 +99,19 @@ local Lsp = {
         "eslint",
         "html",
         "lua_ls",
+        "phpactor",
         "pyright",
         "tailwindcss",
-        "ts_ls",
         "texlab",
+        "ts_ls",
         -- "ltex",
       },
       handlers = handlers,
+    })
+
+    vim.diagnostic.enable = true
+    vim.diagnostic.config({
+      virtual_lines = true,
     })
 
     -- Keybind

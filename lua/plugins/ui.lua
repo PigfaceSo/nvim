@@ -38,40 +38,6 @@ local Statusline = {
   opts = {},
 }
 
-local Dressing = {
-  "stevearc/dressing.nvim",
-  enabled = true,
-  event = "VeryLazy",
-  opts = {
-    input = {
-      mappings = {
-        n = {
-          ["<Esc>"] = "Close",
-          ["q"] = "Close",
-          ["<CR>"] = "Confirm",
-        },
-        i = {
-          ["<C-c"] = "Close",
-          ["<C-q>"] = "Close",
-          ["<CR>"] = "Confirm",
-          ["<Up>"] = "HistoryPrev",
-          ["<Down>"] = "HistoryNext",
-        },
-      },
-    },
-    select = {
-      backend = {},
-      builtin = {
-        mappings = {
-          ["<Esc>"] = "Close",
-          ["q"] = "Close",
-          ["l"] = "Confirm",
-        },
-      },
-    },
-  },
-}
-
 local Fidget = {
   "j-hui/fidget.nvim",
   enabled = true,
@@ -156,7 +122,6 @@ return {
   WhichKey,
   MiniCursorWord,
   -- Statusline,
-  Dressing,
   -- Fidget,
   -- Indent_Backline,
 }

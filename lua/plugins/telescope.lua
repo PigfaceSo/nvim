@@ -7,7 +7,7 @@ Telescope.default = {
     "nvim-lua/plenary.nvim",
     "nvim-tree/nvim-web-devicons",                                  -- Icons
     { "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- FzF sorter
-    "jvgrootveld/telescope-zoxide",                                 -- Zoxide
+    -- "jvgrootveld/telescope-zoxide",                                 -- Zoxide
   },
   enabled = true,
   cmd = "Telescope",
@@ -87,7 +87,7 @@ Telescope.default = {
       },
     })
     telescope.load_extension("fzf")
-    telescope.load_extension("zoxide")
+    -- telescope.load_extension("zoxide")
   end,
 }
 
