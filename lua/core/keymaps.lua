@@ -14,6 +14,8 @@
 local map = vim.keymap.set
 
 -- map("n", "<leader>e", "<cmd>Ex<cr>", { desc = "FileExplorer", silent = true })
+map("n", "<tab>", "<cmd>tabNext<cr>", { desc = "NextTab", silent = true })
+map("n", "<S-tab>", "<cmd>tabprevious<cr>", { desc = "PreTab", silent = true })
 map("n", "L", "<cmd>bNext<cr>", { desc = "NextBuffer", silent = true })
 map("n", "H", "<cmd>bprevious<cr>", { desc = "PreBuffer", silent = true })
 map("n", "<C-w>d", "<cmd>bdelete<cr>", { desc = "BufDelete", silent = true })
@@ -27,7 +29,7 @@ map("n", "J", "maJ`a<cmd>delmarks a<cr>", { desc = "Join", silent = true })
 map("n", "<esc>", "<cmd>nohls<cr><esc>", { desc = "No highlight (Normal)" })
 
 -- Exit Insert mode
-map("i", "jj", "<Esc>", { desc = "Exit insert mode" })
+map("i", "jj", "<esc>", { desc = "Exit insert mode" })
 
 map("v", "J", ":m '>+1<cr>gv=gv", { desc = "Move text Up" })
 map("v", "K", ":m '<-2<cr>gv=gv", { desc = "Move text Down" })

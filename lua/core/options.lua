@@ -22,12 +22,11 @@ opt.relativenumber = true
 
 -- StatusLine
 opt.ruler = true
-opt.laststatus = 0
+opt.laststatus = 3
 opt.cmdheight = 1
 opt.showcmd = true
 opt.showmode = true
 opt.showmatch = true
-
 
 -- Statuscolumn
 opt.signcolumn = "yes"
@@ -66,19 +65,19 @@ opt.foldmethod = "expr"
 opt.foldtext = ""
 opt.foldlevel = 99
 opt.fillchars = {
-  foldopen = "",
-  foldclose = "",
-  -- fold = " ",
-  -- foldsep = " ",
-  diff = "╱",
-  eob = " ",
+	foldopen = "",
+	foldclose = "",
+	-- fold = " ",
+	-- foldsep = " ",
+	diff = "╱",
+	eob = " ",
 }
 
 -- List
 opt.listchars = {
-  tab = "  ",
-  multispace = "·",
-  trail = "·",
+	tab = "  ",
+	multispace = "·",
+	trail = "·",
 }
 opt.list = true
 
