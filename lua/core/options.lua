@@ -1,6 +1,6 @@
 local opt = vim.opt
 
--- vim.cmd.colorscheme("torte")
+vim.cmd.colorscheme("desert")
 opt.background = "dark"
 
 vim.g.loaded_node_provider = 0
