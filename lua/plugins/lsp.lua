@@ -116,7 +116,7 @@ local Lsp = {
 				"phpactor",
 				"pyright",
 				"tailwindcss",
-				"texlab",
+				-- "texlab",
 				"ts_ls",
 				-- "ltex",
 			},

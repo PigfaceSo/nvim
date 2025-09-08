@@ -74,6 +74,15 @@ local Statusline = {
 	opts = {},
 }
 
+local Mini_Statusline = {
+	"nvim-mini/mini.statusline",
+	version = "*",
+	enabled = true,
+	config = function()
+		require("mini.statusline").setup()
+	end,
+}
+
 local Fidget = {
 	"j-hui/fidget.nvim",
 	enabled = true,
@@ -156,6 +165,7 @@ return {
 	Dashboard.plugin,
 	WhichKey,
 	MiniCursorWord,
+	Mini_Statusline,
 	-- Statusline,
 	-- Fidget,
 	-- Indent_Backline,

@@ -16,7 +16,6 @@ local TreeSitter = {
 				"css",
 				"html",
 				"javascript",
-				"lua",
 				"python",
 				"tsx",
 				"typescript",
