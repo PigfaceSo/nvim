@@ -88,12 +88,12 @@ local Coq = {
 	"ms-jpq/coq_nvim",
 	branch = "coq",
 	dependencies = {
-		-- { "ms-jpq/coq.artifacts", branch = "artifacts" },
+		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
 	},
 	enabled = true,
 	init = function()
 		vim.g.coq_settings = {
-			auto_start = true,
+			auto_start = "shut-up",
 			clients = {
 				tabnine = {
 					enabled = false,
@@ -104,7 +104,7 @@ local Coq = {
 }
 
 return {
-	Cmp,
+	-- Cmp,
 	-- CmpMini,
-	-- Coq,
+	Coq,
 }
