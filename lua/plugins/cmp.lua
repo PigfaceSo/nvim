@@ -1,6 +1,7 @@
 local Cmp = {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
+		"windwp/nvim-autopairs",
 		"hrsh7th/cmp-nvim-lsp", -- LSP completenion
 		"hrsh7th/cmp-buffer", -- text completenion
 		"hrsh7th/cmp-path", -- path completenion
@@ -15,6 +16,7 @@ local Cmp = {
 	event = "InsertEnter",
 	config = function()
 		local cmp = require("cmp")
+		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		local luasnip = require("luasnip")
 		require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -56,6 +58,7 @@ local Cmp = {
 				{ name = "neorg" },
 			}),
 		})
+		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
 }
 
@@ -89,17 +92,43 @@ local Coq = {
 	branch = "coq",
 	dependencies = {
 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
+		{ "ms-jpq/coq.thirdparty", branch = "3p" },
+		"windwp/nvim-autopairs",
 	},
 	enabled = true,
 	init = function()
+		local remap = vim.api.nvim_set_keymap
 		vim.g.coq_settings = {
 			auto_start = "shut-up",
 			clients = {
-				tabnine = {
-					enabled = false,
+				tabnine = { enabled = false },
+				tmux = { enabled = false },
+			},
+			display = {
+				pum = {
+					fast_close = false,
 				},
 			},
+			keymap = {
+				recommended = false,
+				pre_select = false,
+			},
 		}
+
+		-- require("coq_3p") {
+		--   { src = "copilot", short_name = "COP", accept_key = "<c-f>" },
+		-- }
+
+		remap("i", "<esc>", [[pumvisible() ? "<c-e><esc>" : "<esc>"]], { expr = true, noremap = true })
+		remap("i", "<c-c>", [[pumvisible() ? "<c-e><c-c>" : "<c-c>"]], { expr = true, noremap = true })
+		remap("i", "<tab>", [[pumvisible() ? "<c-n>" : "<tab>"]], { expr = true, noremap = true })
+		remap(
+			"i",
+			"<CR>",
+			[[pumvisible() ? (complete_info().selected == -1 ? "\<C-e><CR>" : "\<C-y>") : "\<CR>"]],
+			{ expr = true, silent = true }
+		)
+		remap("i", "<s-tab>", [[pumvisible() ? "<c-p>" : "<bs>"]], { expr = true, noremap = true })
 	end,
 }
 
