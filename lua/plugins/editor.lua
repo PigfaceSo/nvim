@@ -23,7 +23,7 @@ local Rename = {
 	enabled = true,
 	config = function()
 		require("inc_rename").setup({})
-		vim.keymap.set("n", "<leader>rn", function()
+		vim.keymap.set("n", "<leader>ln", function()
 			return ":IncRename " .. vim.fn.expand("<cword>")
 		end, { expr = true })
 	end,
@@ -139,7 +139,7 @@ local Dadbod = {
 return {
 	Comment,
 	AutoClose,
-	-- Rename,
+	Rename,
 	ToggleTerm,
 	LaTex,
 	-- Mini_ai,
