@@ -34,6 +34,7 @@ Telescope.default = {
 		{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches (Telescope)" },
 		{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status (Telescope)" },
 		{ "<leader>ls", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Lsp Workspace Symbols (Telescope)" },
+		{ "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "Lsp References (Telescope)" },
 		{ "<leader>ld", "<cmd>Telescope diagnostics<cr>", desc = "Lsp Diagnostics (Telescope)" },
 		{ "<leader>r", "<cmd>Telescope resume<cr>", desc = "Resume (Telescope)" },
 	},
