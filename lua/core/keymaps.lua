@@ -27,7 +27,8 @@ map("n", "<C-u>", "<C-u>zz", { desc = "Page Up" })
 -- map("n", "<leader>j", "<cmd>jumps<cr>", { desc = "Jumplist" })
 map("n", "J", "maJ`a<cmd>delmarks a<cr>", { desc = "Join", silent = true })
 map("n", "<esc>", "<cmd>nohls<cr><esc>", { desc = "No highlight (Normal)" })
-map("n", "<leader>y", '"+y', { desc = "Yank to clipboard" })
+map("n", "<leader>yy", '"+yy', { desc = "Yank line to clipboard" })
+map("n", "<leader>ya", 'gg"+yG<C-o>', { desc = "Yank all to clipboard" })
 
 -- Exit Insert mode
 map("i", "jj", "<esc>", { desc = "Exit insert mode" })
