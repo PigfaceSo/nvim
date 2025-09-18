@@ -11,6 +11,7 @@ local Cmp = {
 		"L3MON4D3/LuaSnip", -- Snippet
 		"saadparwaiz1/cmp_luasnip", -- Snippet completenion
 		"rafamadriz/friendly-snippets", -- snippet from vscode
+		"zbirenbaum/copilot-cmp", -- Copilot
 	},
 	enabled = true,
 	event = "InsertEnter",
@@ -19,6 +20,11 @@ local Cmp = {
 		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		local luasnip = require("luasnip")
 		require("luasnip.loaders.from_vscode").lazy_load()
+
+		require("copilot_cmp").setup({
+			suggestion = { enabled = false },
+			panel = { enabled = false },
+		})
 
 		require("tailwindcss-colorizer-cmp").setup({
 			color_sqare_width = 2,
@@ -56,6 +62,7 @@ local Cmp = {
 				{ name = "path" },
 				{ name = "orgmode" },
 				{ name = "neorg" },
+				{ name = "copilot", group_index = 2 },
 			}),
 		})
 		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
@@ -92,7 +99,7 @@ local Coq = {
 	branch = "coq",
 	dependencies = {
 		{ "ms-jpq/coq.artifacts", branch = "artifacts" },
-		{ "ms-jpq/coq.thirdparty", branch = "3p" },
+		-- { "ms-jpq/coq.thirdparty", branch = "3p" },
 		"windwp/nvim-autopairs",
 	},
 	enabled = true,

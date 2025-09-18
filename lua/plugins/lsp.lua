@@ -125,7 +125,8 @@ local Lsp = {
 
 		vim.diagnostic.enable = true
 		vim.diagnostic.config({
-			virtual_lines = true,
+			virtual_lines = false,
+			virtual_text = true,
 		})
 
 		-- Keybind
