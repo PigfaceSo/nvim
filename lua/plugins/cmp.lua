@@ -140,7 +140,7 @@ local Coq = {
 }
 
 return {
-	-- Cmp,
+	Cmp,
 	-- CmpMini,
-	Coq,
+	-- Coq,
 }

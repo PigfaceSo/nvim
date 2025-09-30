@@ -25,7 +25,7 @@ local Rename = {
 		require("inc_rename").setup({})
 		vim.keymap.set("n", "<leader>ln", function()
 			return ":IncRename " .. vim.fn.expand("<cword>")
-		end, { expr = true })
+		end, { desc = "Lsp Rename (Inc Rename)", expr = true })
 	end,
 }
 
@@ -74,7 +74,36 @@ local Trouble = {
 	enabled = true,
 	cmd = "Trouble",
 	keys = {
-		{ "<leader>t", "<cmd>Trouble diagnostics toggle<cr>", desc = "Diagnostics (Trouble)" },
+		{
+			"<leader>xx",
+			"<cmd>Trouble diagnostics toggle<cr>",
+			desc = "Diagnostics (Trouble)",
+		},
+		{
+			"<leader>xX",
+			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
+			desc = "Buffer Diagnostics (Trouble)",
+		},
+		{
+			"<leader>cs",
+			"<cmd>Trouble symbols toggle focus=false<cr>",
+			desc = "Symbols (Trouble)",
+		},
+		{
+			"<leader>cl",
+			"<cmd>Trouble lsp toggle focus=false win.position=right<cr>",
+			desc = "LSP Definitions / references / ... (Trouble)",
+		},
+		{
+			"<leader>xL",
+			"<cmd>Trouble loclist toggle<cr>",
+			desc = "Location List (Trouble)",
+		},
+		{
+			"<leader>xQ",
+			"<cmd>Trouble qflist toggle<cr>",
+			desc = "Quickfix List (Trouble)",
+		},
 	},
 	opts = {
 		focus = true,
@@ -134,20 +163,20 @@ local Dadbod = {
 		"DBUIFindBuffer",
 	},
 	init = function()
-		-- Your DBUI configuration
 		vim.g.db_ui_use_nerd_fonts = 1
 	end,
 }
 
 return {
-	Comment,
-	AutoClose,
-	Rename,
-	ToggleTerm,
-	LaTex,
-	-- Mini_ai,
-	Undotree,
-	Session,
-	Dadbod,
+	-- Dadbod,
 	-- Leap,
+	-- Mini_ai,
+	AutoClose,
+	Comment,
+	LaTex,
+	Rename,
+	Session,
+	ToggleTerm,
+	Undotree,
+	Trouble,
 }
