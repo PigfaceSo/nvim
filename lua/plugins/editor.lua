@@ -42,8 +42,8 @@ local AutoClose = {
 	event = "InsertEnter",
 	config = function()
 		require("nvim-autopairs").setup({
-			map_bs = false,
-			map_cr = false,
+			map_bs = true,
+			map_cr = true,
 		})
 	end,
 }

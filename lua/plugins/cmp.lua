@@ -1,7 +1,7 @@
 local Cmp = {
 	"hrsh7th/nvim-cmp",
 	dependencies = {
-		"windwp/nvim-autopairs",
+		-- "windwp/nvim-autopairs",
 		"hrsh7th/cmp-nvim-lsp", -- LSP completenion
 		"hrsh7th/cmp-buffer", -- text completenion
 		"hrsh7th/cmp-path", -- path completenion
@@ -17,7 +17,7 @@ local Cmp = {
 	event = "InsertEnter",
 	config = function()
 		local cmp = require("cmp")
-		local cmp_autopairs = require("nvim-autopairs.completion.cmp")
+		-- local cmp_autopairs = require("nvim-autopairs.completion.cmp")
 		local luasnip = require("luasnip")
 		require("luasnip.loaders.from_vscode").lazy_load()
 
@@ -65,7 +65,7 @@ local Cmp = {
 				{ name = "copilot", group_index = 2 },
 			}),
 		})
-		cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
+		-- cmp.event:on("confirm_done", cmp_autopairs.on_confirm_done())
 	end,
 }
 
