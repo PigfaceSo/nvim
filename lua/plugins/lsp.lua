@@ -72,8 +72,8 @@ end
 local handlers = {
 	function(server_name) -- default handler (optional)
 		require("lspconfig")[server_name].setup({
-			-- capabilities = require("cmp_nvim_lsp").default_capabilities(),
-			require("coq").lsp_ensure_capabilities(),
+			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			-- require("coq").lsp_ensure_capabilities(),
 		})
 	end,
 	["lua_ls"] = function()
