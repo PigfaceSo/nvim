@@ -54,9 +54,16 @@ local Diffview = {
 }
 
 local Copilot = {
-	"github/copilot.vim",
+	"zbirenbaum/copilot.lua",
 	enabled = true,
+	dependencies = {
+		"copilotlsp-nvim/copilot-lsp",
+	},
 	cmd = "Copilot",
+	event = "InsertEnter",
+	config = function()
+		require("copilot").setup({})
+	end,
 }
 
 return {

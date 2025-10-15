@@ -72,7 +72,8 @@ end
 local handlers = {
 	function(server_name) -- default handler (optional)
 		require("lspconfig")[server_name].setup({
-			capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			-- capabilities = require("cmp_nvim_lsp").default_capabilities(),
+			capabilities = require("blink.cmp").get_lsp_capabilities(config.capabilities),
 			-- require("coq").lsp_ensure_capabilities(),
 		})
 	end,
@@ -116,7 +117,7 @@ local Lsp = {
 				"phpactor",
 				"pyright",
 				"tailwindcss",
-				-- "texlab",
+				"texlab",
 				"ts_ls",
 				-- "ltex",
 			},

@@ -9,6 +9,167 @@ local Comment = {
 	},
 }
 
+local Sidekick = {
+	"folke/sidekick.nvim",
+	opts = {
+		-- add any options here
+		cli = {
+			mux = {
+				backend = "tmux",
+				enabled = true,
+			},
+		},
+	},
+	keys = {
+		{
+			"<tab>",
+			function()
+				-- if there is a next edit, jump to it, otherwise apply it if any
+				if not require("sidekick").nes_jump_or_apply() then
+					return "<Tab>" -- fallback to normal tab
+				end
+			end,
+			expr = true,
+			desc = "Goto/Apply Next Edit Suggestion",
+		},
+		{
+			"<c-.>",
+			function()
+				require("sidekick.cli").toggle()
+			end,
+			desc = "Sidekick Toggle",
+			mode = { "n", "t", "i", "x" },
+		},
+		{
+			"<leader>aa",
+			function()
+				require("sidekick.cli").toggle()
+			end,
+			desc = "Sidekick Toggle CLI",
+		},
+		{
+			"<leader>as",
+			function()
+				require("sidekick.cli").select()
+			end,
+			-- Or to select only installed tools:
+			-- require("sidekick.cli").select({ filter = { installed = true } })
+			desc = "Select CLI",
+		},
+		{
+			"<leader>ad",
+			function()
+				require("sidekick.cli").close()
+			end,
+			desc = "Detach a CLI Session",
+		},
+		{
+			"<leader>at",
+			function()
+				require("sidekick.cli").send({ msg = "{this}" })
+			end,
+			mode = { "x", "n" },
+			desc = "Send This",
+		},
+		{
+			"<leader>af",
+			function()
+				require("sidekick.cli").send({ msg = "{file}" })
+			end,
+			desc = "Send File",
+		},
+		{
+			"<leader>av",
+			function()
+				require("sidekick.cli").send({ msg = "{selection}" })
+			end,
+			mode = { "x" },
+			desc = "Send Visual Selection",
+		},
+		{
+			"<leader>ap",
+			function()
+				require("sidekick.cli").prompt()
+			end,
+			mode = { "n", "x" },
+			desc = "Sidekick Select Prompt",
+		},
+		-- Example of a keybinding to open Claude directly
+		{
+			"<leader>ac",
+			function()
+				require("sidekick.cli").toggle({ name = "claude", focus = true })
+			end,
+			desc = "Sidekick Toggle Claude",
+		},
+	},
+}
+
+local Avantae = {
+	"yetone/avante.nvim",
+	build = vim.fn.has("win32") ~= 0 and "powershell -ExecutionPolicy Bypass -File Build.ps1 -BuildFromSource false"
+		or "make",
+	event = "VeryLazy",
+	version = false, -- Never set this value to "*"! Never!
+	opts = {
+		instructions_file = "avante.md",
+		provider = "gemini-cli",
+		providers = {
+			gemini = {
+				model = "gemini-2.0-pro",
+			},
+		},
+		acp_providers = {
+			["gemini-cli"] = {
+				command = "gemini",
+				args = { "--experimental-acp" },
+				env = {
+					NODE_NO_WARNINGS = "1",
+					GEMINI_API_KEY = os.getenv("GEMINI_API_KEY"),
+				},
+			},
+		},
+	},
+	dependencies = {
+		"nvim-lua/plenary.nvim",
+		"MunifTanjim/nui.nvim",
+		--- The below dependencies are optional,
+		"nvim-mini/mini.pick", -- for file_selector provider mini.pick
+		"nvim-telescope/telescope.nvim", -- for file_selector provider telescope
+		"hrsh7th/nvim-cmp", -- autocompletion for avante commands and mentions
+		-- "ibhagwan/fzf-lua", -- for file_selector provider fzf
+		-- "stevearc/dressing.nvim", -- for input provider dressing
+		-- "folke/snacks.nvim", -- for input provider snacks
+		"nvim-tree/nvim-web-devicons", -- or echasnovski/mini.icons
+		"zbirenbaum/copilot.lua", -- for providers='copilot'
+		{
+			-- support for image pasting
+			"HakonHarnes/img-clip.nvim",
+			event = "VeryLazy",
+			opts = {
+				-- recommended settings
+				default = {
+					embed_image_as_base64 = false,
+					prompt_for_file_name = false,
+					drag_and_drop = {
+						insert_mode = true,
+					},
+					-- required for Windows users
+					use_absolute_path = true,
+				},
+			},
+		},
+		{
+			-- Make sure to set this up properly if you have lazy=true
+			"MeanderingProgrammer/render-markdown.nvim",
+			opts = {
+				file_types = { "markdown", "Avante" },
+			},
+			ft = { "markdown", "Avante" },
+		},
+	},
+}
+
 local ToggleTerm = {
 	"akinsho/toggleterm.nvim",
 	version = "*",
@@ -134,15 +295,12 @@ local Trouble = {
 local LaTex = {
 	"lervag/vimtex",
 	enabled = true,
-	-- lazy = false, -- we don't want to lazy load VimTeX
-	-- tag = "v2.15", -- uncomment to pin to a specific release
 	ft = "tex",
 	init = function()
-		-- VimTeX configuration goes here, e.g.
 		-- vim.g.vimtex_view_method = "zathura"
-		-- vim.g.vimtex_view_method = "mupdf"
-		vim.g.vimtex_view_method = "sioyek"
-		vim.g.vimtex_view_forward_search_on_start = false
+		vim.g.vimtex_view_method = "mupdf"
+		-- vim.g.vimtex_view_method = "sioyek"
+		-- vim.g.vimtex_view_forward_search_on_start = false
 		vim.g.vimtex_compiler_latexmk = {
 			aux_dir = ".tex/",
 			out_dir = "",
@@ -191,12 +349,14 @@ return {
 	-- Dadbod,
 	-- Leap,
 	-- Mini_ai,
+	-- Avantae,
 	AutoClose,
 	Comment,
 	Tmux,
 	LaTex,
 	Rename,
 	Session,
+	Sidekick,
 	ToggleTerm,
 	Undotree,
 	Trouble,

@@ -37,6 +37,7 @@ Telescope.default = {
 		{ "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "Lsp References (Telescope)" },
 		{ "<leader>ld", "<cmd>Telescope diagnostics<cr>", desc = "Lsp Diagnostics (Telescope)" },
 		{ "<leader>r", "<cmd>Telescope resume<cr>", desc = "Resume (Telescope)" },
+		{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History (Telescope)" },
 	},
 	config = function()
 		local telescope = require("telescope")
