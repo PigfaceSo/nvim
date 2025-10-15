@@ -98,6 +98,7 @@ local Lsp = {
 	dependencies = {
 		"williamboman/mason.nvim", -- Mason
 		"williamboman/mason-lspconfig.nvim", -- Mason for lsp
+		-- "saghen/blink.cmp",
 		-- { "ms-jpq/coq_nvim", branch = "coq" }
 	},
 	enabled = true,
