@@ -164,8 +164,8 @@ local Indent_Backline = {
 return {
 	Dashboard.plugin,
 	WhichKey,
-	MiniCursorWord,
-	Mini_Statusline,
+	-- MiniCursorWord,
+	-- Mini_Statusline,
 	-- Statusline,
 	-- Fidget,
 	-- Indent_Backline,

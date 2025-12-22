@@ -22,6 +22,7 @@ local GitSign = {
 		{ "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Line Blame" },
 	},
 	opts = {
+    current_line_blame = true,
 		signs = {
 			add = { text = "▎" },
 			change = { text = "▎" },
@@ -89,9 +90,9 @@ local Lazygit = {
 }
 
 return {
-	Git,
+	-- Git,
 	GitSign,
-	Copilot,
-	Lazygit,
+	-- Copilot,
+	-- Lazygit,
 	-- Diffview,
 }

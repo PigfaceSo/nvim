@@ -45,7 +45,7 @@ Telescope.default = {
 
 		telescope.setup({
 			defaults = {
-				path_display = { "shorten" },
+				-- path_display = { "shorten" },
 				mappings = {
 					n = {
 						["q"] = telescope_actions.close,

@@ -62,7 +62,7 @@ local Oil = {
 	enabled = true,
 	cmd = "Oil",
 	keys = {
-		-- { "<leader>e", "<cmd>Oil --float<cr>", desc = "Open parent directory (Float)" },
+		{ "<leader>e", "<cmd>Oil --float<cr>", desc = "Open parent directory (Float)" },
 		{ "-", "<cmd>Oil<cr>", desc = "Open parent directory" },
 	},
 	config = function()
@@ -182,5 +182,5 @@ return {
 	-- NeoTree,
 	-- Oil,
 	-- Minifiles,
-	Yazi,
+	-- Yazi,
 }

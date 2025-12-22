@@ -98,9 +98,16 @@ local Sidekick = {
 		{
 			"<leader>ac",
 			function()
-				require("sidekick.cli").toggle({ name = "claude", focus = true })
+				require("sidekick.cli").toggle({ name = "cursor", focus = true })
 			end,
-			desc = "Sidekick Toggle Claude",
+			desc = "Sidekick Toggle Cursor",
+		},
+    {
+			"<leader>ag",
+			function()
+				require("sidekick.cli").toggle({ name = "gemini", focus = true })
+			end,
+			desc = "Sidekick Toggle Gemini",
 		},
 	},
 }
@@ -353,11 +360,11 @@ return {
 	AutoClose,
 	Comment,
 	Tmux,
-	LaTex,
-	Rename,
+	-- LaTex,
+	-- Rename,
 	Session,
 	Sidekick,
-	ToggleTerm,
+	-- ToggleTerm,
 	Undotree,
-	Trouble,
+	-- Trouble,
 }
