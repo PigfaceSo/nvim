@@ -1,76 +1,36 @@
-local TreeSitter = {
-	"nvim-treesitter/nvim-treesitter",
-	enabled = true,
-	dependencies = {
-		"nvim-treesitter/nvim-treesitter-textobjects", -- Do with (function,class,argument)
-		"nvim-treesitter/nvim-treesitter-context", -- Show function on top line
-	},
-	version = false,
-	event = { "BufReadPre", "BufNewFile" },
-	bulid = ":TSUpdate",
-	config = function()
-		require("nvim-treesitter.configs").setup({
-			ensure_installed = {
-        "arduino",
-        "bash",
-        "blade",
-        "c",
-        "css",
-        "gitcommit",
-        "gitignore",
-        "html",
-        "htmldjango",
-        "javascript",
-        "json",
-        "json5",
-        "php",
-        "php_only",
-        "phpdoc",
-        "python",
-        "toml",
-        "tsx",
-        "typescript",
-        "yaml",
-        "ruby",
-			},
-			ignore_install = { "diff", "org" },
-			auto_Install = true,
-			sync_install = false,
-			highlight = {
-				enable = false,
-				additional_vim_regex_highlighting = false,
-			},
-			indent = {
-				enable = false,
-			},
-			textobjects = {
-				select = {
-					enable = true,
-					lookahead = true,
-					keymaps = {
-						["af"] = "@function.outer",
-						["if"] = "@function.inner",
-						["ac"] = "@class.outer",
-						["ic"] = "@class.inner",
-						["aa"] = "@parameter.outer",
-						["ia"] = "@parameter.inner",
-						["al"] = "@loop.outer",
-						["il"] = "@loop.inner",
-					},
-				},
-			},
-		})
-	end,
-}
+vim.pack.add({
+  { src = 'https://github.com/nvim-treesitter/nvim-treesitter' },
+  { src = 'https://github.com/windwp/nvim-ts-autotag' },
+})
 
-local Autotag = {
-	"windwp/nvim-ts-autotag",
-	enabled = true,
-	event = { "BufReadPre", "BufNewFile" },
-	opts = {},
+local treesitter_ensure_install = {
+  'arduino',
+  'bash',
+  'blade',
+  'c',
+  'css',
+  'gitcommit',
+  'gitignore',
+  'html',
+  'htmldjango',
+  'javascript',
+  'json',
+  'php',
+  'phpdoc',
+  'python',
+  'toml',
+  'tsx',
+  'typescript',
+  'yaml',
+  'ruby',
 }
+require('nvim-treesitter').install(treesitter_ensure_install)
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = treesitter_ensure_install,
+  callback = function()
+    vim.treesitter.start()
+    -- vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+  end,
+})
 
-return {
-	-- TreeSitter,
-	Autotag,
-}
+require('nvim-ts-autotag').setup()

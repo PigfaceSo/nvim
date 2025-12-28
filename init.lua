@@ -1,59 +1,25 @@
-vim.g.mapleader = " "
-vim.maplocalleader = " "
-
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not (vim.uv or vim.loop).fs_stat(lazypath) then
-	vim.fn.system({
-		"git",
-		"clone",
-		"--filter=blob:none",
-		"https://github.com/folke/lazy.nvim.git",
-		"--branch=stable", -- latest stable release
-		lazypath,
-	})
-end
-vim.opt.rtp:prepend(lazypath)
-
-require("lazy").setup("plugins", {
-	defaults = {
-		lazy = false,
-	},
-	install = {
-		missing = true,
-	},
-	rocks = {
-		enabled = false,
-	},
-	performance = {
-		cache = {
-			enable = true,
-			disable_events = { "VimEnter", "BufReadPre" },
-		},
-		rtp = {
-			reset = true,
-			disabled_plugins = {
-				-- "fzf",
-				"gzip",
-				"matchit",
-				-- "matchparen",
-				-- "netrwPlugin",
-				"tarPlugin",
-				"tohtml",
-				"tutor",
-				"zipPlugin",
-			},
-		},
-	},
-	change_detection = {
-		notify = false,
-	},
+vim.pack.add({
+  { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
+  { src = 'https://github.com/jiaoshijie/undotree' },
+  { src = 'https://github.com/windwp/nvim-autopairs' },
+  { src = 'https://github.com/nvim-mini/mini.statusline' },
 })
+require('core.options')
+require('core.keymaps')
+require('core.autocmd')
 
-require("core.netrw")
-require("core.neovide")
-if not vim.g.neovide then
-	require("core.ui.highlight_neovim")
-end
-require("core.options")
-require("core.keymaps")
-require("core.autocmd")
+require('plugins.highlight')
+require('plugins.telescope')
+require('plugins.git')
+require('plugins.lspconfig')
+require('plugins.treesitter')
+require('plugins.tmux')
+
+require('mini.statusline').setup()
+
+require('nvim-autopairs').setup()
+
+require('undotree').setup()
+vim.keymap.set('n', '<leader>u', function()
+  require('undotree').toggle()
+end, { desc = 'Undotree' })

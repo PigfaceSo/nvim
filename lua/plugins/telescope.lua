@@ -1,157 +1,84 @@
-local Telescope = {}
+vim.pack.add({
+  { src = 'https://github.com/nvim-lua/plenary.nvim' },
+  { src = 'https://github.com/nvim-telescope/telescope.nvim' },
+  { src = 'https://github.com/nvim-telescope/telescope-file-browser.nvim' },
+})
 
-Telescope.default = {
-	"nvim-telescope/telescope.nvim",
-	tag = "0.1.8",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-tree/nvim-web-devicons", -- Icons
-		{ "nvim-telescope/telescope-fzf-native.nvim", build = "make" }, -- FzF sorter
-		-- "jvgrootveld/telescope-zoxide",                                 -- Zoxide
-	},
-	enabled = true,
-	cmd = "Telescope",
-	keys = {
-		{ "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Find File (Telescope)" },
-		{ "<leader>fb", "<cmd>Telescope buffers<cr>", desc = "Buffers (Telescope)" },
-		{ "<leader>fg", "<cmd>Telescope live_grep<cr>", desc = "Live Grep (Telescope)" },
-		{ "<leader>fh", "<cmd>Telescope help_tags<cr>", desc = "Help (Telescope)" },
-		{ "<leader>ft", "<cmd>Telescope colorscheme<cr>", desc = "Colorscheme (Telescope)" },
-		{ "<leader>fo", "<cmd>Telescope oldfiles<cr>", desc = "OldFiles (Telescope)" },
-		{
-			"<leader>fc",
-			function()
-				require("telescope.builtin").find_files({
-					cwd = vim.fn.stdpath("config"),
-				})
-			end,
-			desc = "Config",
-		},
-		{ "<leader>fm", "<cmd>Telescope marks<cr>", desc = "Marks (Telescope)" },
-		{ "<leader>fj", "<cmd>Telescope jumplist<cr>", desc = "Jumplist (Telescope)" },
-		{ "<leader>gg", "<cmd>Telescope git_files<cr>", desc = "Git Files (Telescope)" },
-		{ "<leader>gc", "<cmd>Telescope git_commits<cr>", desc = "Git Commits (Telescope)" },
-		{ "<leader>gb", "<cmd>Telescope git_branches<cr>", desc = "Git Branches (Telescope)" },
-		{ "<leader>gs", "<cmd>Telescope git_status<cr>", desc = "Git Status (Telescope)" },
-		{ "<leader>ls", "<cmd>Telescope lsp_workspace_symbols<cr>", desc = "Lsp Workspace Symbols (Telescope)" },
-		{ "<leader>lr", "<cmd>Telescope lsp_references<cr>", desc = "Lsp References (Telescope)" },
-		{ "<leader>ld", "<cmd>Telescope diagnostics<cr>", desc = "Lsp Diagnostics (Telescope)" },
-		{ "<leader>r", "<cmd>Telescope resume<cr>", desc = "Resume (Telescope)" },
-		{ "<leader>:", "<cmd>Telescope command_history<cr>", desc = "Command History (Telescope)" },
-	},
-	config = function()
-		local telescope = require("telescope")
-		local telescope_actions = require("telescope.actions")
+local telescope_actions = require("telescope.actions")
+local telescope_fb_actions = require("telescope").extensions.file_browser.actions
+require("telescope").setup({
+  defaults = {
+    -- path_display = { "shorten" },
+    mappings = {
+      n = {
+        ["l"] = telescope_actions.select_default,
+      },
+      i = {
+        ["<C-j>"] = telescope_actions.move_selection_next,
+        ["<C-k>"] = telescope_actions.move_selection_previous,
+        ["<C-l>"] = telescope_actions.select_default,
+      },
+    },
+  },
+  extensions = {
+    file_browser = {
+      theme = "dropdown",
+      hijack_netrw = true,
+      respect_gitignore = true,
+      no_ignore = true,
+      hidden = false,
+      grouped = true,
+      hide_parent_dir = true,
+      previewer = true,
+      initial_mode = "insert",
+      layout_config = {
+        height = 10,
+      },
+      mappings = {
+        ["n"] = {
+          ["a"] = telescope_fb_actions.create,
+          ["h"] = telescope_fb_actions.goto_parent_dir,
+          ["o"] = telescope_fb_actions.open,
+          ["."] = telescope_fb_actions.toggle_hidden,
+        },
+        ["i"] = {
+          ["<C-h>"] = telescope_fb_actions.goto_parent_dir,
+          ["<C-o>"] = telescope_fb_actions.open,
+          ["<C-.>"] = telescope_fb_actions.toggle_hidden,
+        },
+      },
+    },
+  },
+})
 
-		telescope.setup({
-			defaults = {
-				-- path_display = { "shorten" },
-				mappings = {
-					n = {
-						["q"] = telescope_actions.close,
-						["l"] = telescope_actions.select_default,
-					},
-					i = {
-						["<C-q>"] = telescope_actions.close,
-						["<C-j>"] = telescope_actions.move_selection_next,
-						["<C-k>"] = telescope_actions.move_selection_previous,
-					},
-				},
-			},
-			pickers = {
-				find_files = {
-					prompt_prefix = "   ",
-				},
-				buffers = {
-					theme = "dropdown",
-					prompt_prefix = "   ",
-				},
-				help_tags = {
-					theme = "dropdown",
-					prompt_prefix = " 󰋖  ",
-					previewer = false,
-				},
-				diagnostics = {
-					prompt_prefix = "   ",
-				},
-				git_files = {
-					prompt_prefix = "   ",
-				},
-				git_commits = {
-					prompt_prefix = "   ",
-				},
-				git_branches = {
-					prompt_prefix = "  ",
-				},
-				git_status = {
-					prompt_prefix = "   ",
-				},
-			},
-		})
-		telescope.load_extension("fzf")
-		-- telescope.load_extension("zoxide")
-	end,
-}
+require("telescope").load_extension("file_browser")
 
-Telescope.file_explorer = {
-	"nvim-telescope/telescope-file-browser.nvim",
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-		"nvim-telescope/telescope.nvim",
-	},
-	enabled = true,
-	keys = {
-		{
-			"<leader>e",
-			function()
-				require("telescope").extensions.file_browser.file_browser({
-					path = "%:p:h",
-					select_buffer = true,
-				})
-			end,
-			desc = "Explorer (Telescope)",
-		},
-	},
-	config = function()
-		local telescope = require("telescope")
-		local fb_actions = telescope.extensions.file_browser.actions
-		telescope.setup({
-			extensions = {
-				file_browser = {
-					theme = "dropdown",
-					prompt_prefix = "   ",
-					hijack_netrw = true,
-					respect_gitignore = true,
-					no_ignore = true,
-					hidden = false,
-					grouped = true,
-					hide_parent_dir = true,
-					previewer = false,
-					initial_mode = "insert",
-					layout_config = {
-						height = 20,
-					},
-					mappings = {
-						["n"] = {
-							["a"] = fb_actions.create,
-							["h"] = fb_actions.goto_parent_dir,
-							["o"] = fb_actions.open,
-							["."] = fb_actions.toggle_hidden,
-						},
-						["i"] = {
-							["<C-h>"] = fb_actions.goto_parent_dir,
-							["<C-o>"] = fb_actions.open,
-							["<C-.>"] = fb_actions.toggle_hidden,
-						},
-					},
-				},
-			},
-		})
-		telescope.load_extension("file_browser")
-	end,
-}
-
-return {
-	Telescope.default,
-	-- Telescope.file_explorer,
-}
+local builtin = require('telescope.builtin')
+vim.keymap.set("n", "<leader>ff", builtin.find_files, { desc = "Find File (Telescope)" })
+vim.keymap.set("n", "<leader>fb", builtin.buffers, { desc = "Buffers (Telescope)" })
+vim.keymap.set("n", "<leader>fg", builtin.live_grep, { desc = "Live Grep (Telescope)" })
+vim.keymap.set("n", "<leader>fh", builtin.help_tags, { desc = "Help (Telescope)" })
+vim.keymap.set("n", "<leader>ft", builtin.colorscheme, { desc = "Colorscheme (Telescope)" })
+vim.keymap.set("n", "<leader>fo", builtin.oldfiles, { desc = "OldFiles (Telescope)" })
+vim.keymap.set("n", "<leader>fc", function()
+  require("telescope.builtin").find_files({
+    cwd = vim.fn.stdpath("config")
+  })
+end, { desc = "Config (Telescope)" })
+vim.keymap.set("n", "<leader>fm", builtin.marks, { desc = "Marks (Telescope)" })
+vim.keymap.set("n", "<leader>fj", builtin.jumplist, { desc = "Jumplist (Telescope)" })
+vim.keymap.set("n", "<leader>gg", builtin.git_files, { desc = "Git Files (Telescope)" })
+vim.keymap.set("n", "<leader>gc", builtin.git_commits, { desc = "Git Commits (Telescope)" })
+vim.keymap.set("n", "<leader>gb", builtin.git_branches, { desc = "Git Branches (Telescope)" })
+vim.keymap.set("n", "<leader>gs", builtin.git_status, { desc = "Git Status (Telescope)" })
+vim.keymap.set("n", "<leader>ls", builtin.lsp_workspace_symbols, { desc = "Lsp Workspace Symbols (Telescope)" })
+vim.keymap.set("n", "<leader>lr", builtin.lsp_references, { desc = "Lsp References (Telescope)" })
+vim.keymap.set("n", "<leader>ld", builtin.diagnostics, { desc = "Lsp Diagnostics (Telescope)" })
+vim.keymap.set("n", "<leader>r", builtin.resume, { desc = "Resume (Telescope)" })
+vim.keymap.set("n", "<leader>:", builtin.command_history, { desc = "Command History (Telescope)" })
+vim.keymap.set("n", "<leader>e", function()
+  require("telescope").extensions.file_browser.file_browser({
+    path = "%:p:h",
+    select_buffer = true,
+  })
+end, { desc = "Explorer (Telescope)" })

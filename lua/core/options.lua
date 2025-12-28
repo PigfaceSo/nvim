@@ -1,102 +1,91 @@
-local opt = vim.opt
+vim.opt.background = 'dark'
+vim.opt.encoding = 'utf-8'
+vim.opt.termguicolors = true
+vim.opt.mouse = 'a'
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = false
 
--- vim.cmd.colorscheme("desert")
-opt.background = "dark"
-
-vim.g.loaded_node_provider = 0
-vim.g.loaded_python3_provider = 0
-vim.g.loaded_perl_provider = 0
-
-opt.encoding = "utf-8"
-
-opt.termguicolors = true
-
-opt.mouse = "a"
-opt.guicursor = "n-v-i-c:blinkon1"
-opt.cursorline = true
-opt.cursorcolumn = false
+-- Autocomplete
+vim.opt.autocomplete = false
+vim.opt.completeopt = 'menu,menuone,popup,fuzzy'
+vim.opt.complete = '.,w,b,u,t'
+vim.opt.pumheight = 10
 
 -- Line number
-opt.number = true
-opt.relativenumber = true
+vim.opt.number = true
+vim.opt.relativenumber = true
 
 -- StatusLine
-opt.ruler = true
-opt.laststatus = 3
-opt.cmdheight = 1
-opt.showcmd = true
-opt.showmode = true
-opt.showmatch = true
+vim.opt.ruler = true
+vim.opt.laststatus = 3
+vim.opt.cmdheight = 1
+vim.opt.showcmd = true
+vim.opt.showmode = true
+vim.opt.showmatch = true
 
 -- Statuscolumn
-opt.signcolumn = "yes"
-opt.statuscolumn = [[%!v:lua.require('core.statuscolumn').statuscolumn()]]
+vim.opt.signcolumn = 'yes:2'
 
 -- Split position
-opt.splitbelow = true
-opt.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 
 -- Warp text
-opt.wrap = false
+vim.opt.wrap = false
 
 -- Scrolloff
-opt.scrolloff = 10
-opt.sidescrolloff = 12
-
--- Popupmenu
-opt.pumheight = 10
+vim.opt.scrolloff = 10
+vim.opt.sidescrolloff = 12
 
 -- Tab / Space
-opt.expandtab = true
-opt.smarttab = true
-opt.tabstop = 2
-opt.shiftwidth = 2
-opt.shiftround = true
+vim.opt.expandtab = true
+vim.opt.smarttab = true
+vim.opt.tabstop = 2
+vim.opt.shiftwidth = 2
+vim.opt.shiftround = true
 
 -- Indent
-opt.autoindent = true
-opt.smartindent = true
--- opt.formatexpr = "v:lua.require('conform').formatexpr()"
+vim.opt.autoindent = true
+vim.opt.smartindent = true
 
 -- Fold
-opt.foldenable = false
-opt.foldexpr = "v:lua.require('core.ui').foldexpr()"
-opt.foldmethod = "expr"
-opt.foldtext = ""
-opt.foldlevel = 99
-opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	-- fold = " ",
-	-- foldsep = " ",
-	diff = "╱",
-	eob = " ",
+vim.opt.foldenable = false
+vim.opt.foldtext = ''
+vim.opt.foldlevel = 99
+vim.opt.fillchars = {
+  foldopen = '',
+  foldclose = '',
+  -- fold = ' ',
+  -- foldsep = ' ',
+  diff = '╱',
+  eob = ' ',
 }
 
 -- List
-opt.listchars = {
-	tab = "  ",
-	multispace = "·",
-	trail = "·",
+vim.opt.listchars = {
+  tab = '  ',
+  multispace = '·',
+  trail = '·',
 }
-opt.list = true
+vim.opt.list = true
 
 -- Search
-opt.ignorecase = true
-opt.smartcase = true
-opt.incsearch = true
-opt.hlsearch = false
-opt.inccommand = "split"
+vim.opt.ignorecase = true
+vim.opt.smartcase = true
+
+vim.opt.incsearch = true
+vim.opt.hlsearch = false
+vim.opt.inccommand = 'split'
 
 -- File
-opt.backup = false
-opt.swapfile = false
-opt.undofile = true
+vim.opt.backup = false
+vim.opt.swapfile = false
+vim.opt.undofile = true
 
--- Other options
--- opt.clipboard = "unnamedplus"
-opt.timeout = true
-opt.timeoutlen = 3000
-opt.ttimeoutlen = 10
-opt.confirm = true
-opt.updatetime = 200
+-- Other vim.options
+-- vim.opt.clipboard = 'unnamedplus'
+vim.opt.timeout = true
+vim.opt.timeoutlen = 3000
+vim.opt.ttimeoutlen = 10
+vim.opt.confirm = true
+vim.opt.updatetime = 200

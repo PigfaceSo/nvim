@@ -1,98 +1,17 @@
-local Git = {
-	"tpope/vim-fugitive",
-	enabled = true,
-	cmd = { "G", "Git" },
-	keys = {
-		{ "<leader>go", "<cmd>Git<cr>", desc = "Git" },
-	},
-}
+vim.pack.add({
+  { src = 'https://github.com/lewis6991/gitsigns.nvim' },
+  { src = 'https://github.com/kdheepak/lazygit.nvim' },
+})
 
-local GitSign = {
-	"lewis6991/gitsigns.nvim",
-	enabled = true,
-	event = "VeryLazy",
-	cmd = "Gitsigns",
-	keys = {
-		{ "<leader>hs", "<cmd>Gitsigns stage_hunk<cr>", desc = "Stage Hunk" },
-		{ "<leader>hr", "<cmd>Gitsigns reset_hunk<cr>", desc = "Reset Hunk" },
-		{ "<leader>hS", "<cmd>Gitsigns stage_buffer<cr>", desc = "Stage Buffer" },
-		{ "<leader>hR", "<cmd>Gitsigns reset_buffer<cr>", desc = "Reset Buffer" },
-		{ "<leader>hp", "<cmd>Gitsigns preview_hunk<cr>", desc = "Preview Hunk" },
-		{ "<leader>hd", "<cmd>Gitsigns diffthis<cr>", desc = "Git Diff" },
-		{ "<leader>tb", "<cmd>Gitsigns toggle_current_line_blame<cr>", desc = "Toggle Line Blame" },
-	},
-	opts = {
-    current_line_blame = true,
-		signs = {
-			add = { text = "▎" },
-			change = { text = "▎" },
-			delete = { text = "" },
-			topdelete = { text = "" },
-			changedelete = { text = "▎" },
-			untracked = { text = "▎" },
-		},
-		signs_staged = {
-			add = { text = "▎" },
-			change = { text = "▎" },
-			delete = { text = "" },
-			topdelete = { text = "" },
-			changedelete = { text = "▎" },
-		},
-	},
-}
+require('gitsigns').setup({
+  current_line_blame = true
+})
+vim.keymap.set('n', '<leader>hs', '<cmd>Gitsigns stage_hunk<cr>', { desc = 'Stage Hunk' })
+vim.keymap.set('n', '<leader>hr', '<cmd>Gitsigns reset_hunk<cr>', { desc = 'Reset Hunk' })
+vim.keymap.set('n', '<leader>hS', '<cmd>Gitsigns stage_buffer<cr>', { desc = 'Stage Buffer' })
+vim.keymap.set('n', '<leader>hR', '<cmd>Gitsigns reset_buffer<cr>', { desc = 'Reset Buffer' })
+vim.keymap.set('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<cr>', { desc = 'Preview Hunk' })
+vim.keymap.set('n', '<leader>hd', '<cmd>Gitsigns diffthis<cr>', { desc = 'Git Diff' })
+vim.keymap.set('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<cr>', { desc = 'Toggle Line Blame' })
 
-local Diffview = {
-	"sindrets/diffview.nvim",
-	enabled = true,
-	dependencies = {
-		"nvim-tree/nvim-web-devicons", -- Icons
-	},
-	cmd = "DiffviewOpen",
-	keys = {
-		{ "<leader>gdo", "<cmd>DiffviewOpen<cr>", desc = "DiffviewOpen" },
-		{ "<leader>gdc", "<cmd>DiffviewClose<cr>", desc = "DiffviewClose" },
-	},
-}
-
-local Copilot = {
-	"zbirenbaum/copilot.lua",
-	enabled = true,
-	dependencies = {
-		"copilotlsp-nvim/copilot-lsp",
-	},
-	cmd = "Copilot",
-	event = "InsertEnter",
-	config = function()
-		require("copilot").setup({})
-	end,
-}
-
-local Lazygit = {
-	"kdheepak/lazygit.nvim",
-	enabled = true,
-	lazy = true,
-	cmd = {
-		"LazyGit",
-		"LazyGitConfig",
-		"LazyGitCurrentFile",
-		"LazyGitFilter",
-		"LazyGitFilterCurrentFile",
-	},
-	-- optional for floating window border decoration
-	dependencies = {
-		"nvim-lua/plenary.nvim",
-	},
-	-- setting the keybinding for LazyGit with 'keys' is recommended in
-	-- order to load the plugin when the command is run for the first time
-	keys = {
-		{ "<leader>lg", "<cmd>LazyGit<cr>", desc = "LazyGit" },
-	},
-}
-
-return {
-	-- Git,
-	GitSign,
-	-- Copilot,
-	-- Lazygit,
-	-- Diffview,
-}
+vim.keymap.set('n', '<leader>go', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
