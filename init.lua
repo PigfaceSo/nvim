@@ -4,6 +4,7 @@ vim.pack.add({
   { src = 'https://github.com/windwp/nvim-autopairs' },
   { src = 'https://github.com/nvim-mini/mini.statusline' },
 })
+
 require('core.options')
 require('core.keymaps')
 require('core.autocmd')
