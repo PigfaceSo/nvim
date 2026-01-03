@@ -17,8 +17,8 @@ require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
     'bashls',
-    'clangd',
     'bashls',
+    'clangd',
     'clangd',
     'cssls',
     'eslint',
@@ -26,9 +26,10 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'phpactor',
     'pyright',
+    'ruby_lsp',
+    'rust_analyzer',
     'tailwindcss',
     'ts_ls',
-    'ruby_lsp',
   },
   handlers = function(server_name)
     require('lspconfig')[server_name].setup({

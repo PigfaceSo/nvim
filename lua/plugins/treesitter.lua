@@ -18,11 +18,12 @@ local treesitter_ensure_install = {
   'php',
   'phpdoc',
   'python',
+  'ruby',
+  'rust',
   'toml',
   'tsx',
   'typescript',
   'yaml',
-  'ruby',
 }
 require('nvim-treesitter').install(treesitter_ensure_install)
 vim.api.nvim_create_autocmd('FileType', {
