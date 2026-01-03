@@ -23,7 +23,7 @@ require("telescope").setup({
   extensions = {
     file_browser = {
       theme = "dropdown",
-      hijack_netrw = true,
+      hijack_netrw = false,
       respect_gitignore = true,
       no_ignore = true,
       hidden = false,
