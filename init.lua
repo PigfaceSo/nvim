@@ -56,6 +56,7 @@ vim.keymap.set('n', '<leader>gg', ':FzfLua git_files<cr>', { desc = 'Git Files (
 vim.keymap.set('n', '<leader>gc', ':FzfLua git_commits<cr>', { desc = 'Git Commit (fzf-lua)' })
 vim.keymap.set('n', '<leader>gb', ':FzfLua git_branches<cr>', { desc = 'Git Branches (fzf-lua)' })
 vim.keymap.set('n', '<leader>gs', ':FzfLua git_status<cr>', { desc = 'Git Status (fzf-lua)' })
+vim.keymap.set('n', '<leader>lc', ':FzfLua lsp_code_actions<cr>', { desc = 'Lsp Code Actions (fzf-lua)' })
 vim.keymap.set('n', '<leader>ls', ':FzfLua lsp_workspace_symbols<cr>', { desc = 'Lsp Workspace Symbols (fzf-lua)' })
 vim.keymap.set('n', '<leader>lr', ':FzfLua lsp_references<cr>', { desc = 'Lsp References (fzf-lua)' })
 vim.keymap.set('n', '<leader>lx', ':FzfLua diagnostics_workspace<cr>', { desc = 'Lsp Diagnostics Workspace (fzf-lua)' })

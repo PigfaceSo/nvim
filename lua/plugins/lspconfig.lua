@@ -12,7 +12,6 @@ vim.diagnostic.config({
   virtual_lines = true,
   virtual_text = false,
 })
-
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -70,9 +69,9 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '[d', function()
       vim.diagnostic.goto_prev()
     end, { desc = 'Go Prev (LSP)', buffer = event.buf })
-    vim.keymap.set('n', '<leader>lc', function()
-      vim.lsp.buf.code_action()
-    end, { desc = 'Action (LSP)', buffer = event.buf })
+    -- vim.keymap.set('n', '<leader>lc', function()
+    --   vim.lsp.buf.code_action()
+    -- end, { desc = 'Action (LSP)', buffer = event.buf })
     -- vim.keymap.set('n', '<leader>lr', function()
     --   vim.lsp.buf.references()
     -- end, { desc = 'References (LSP)', buffer = event.buf })
