@@ -26,7 +26,7 @@ require('mason-lspconfig').setup({
     'lua_ls',
     'phpactor',
     'pyright',
-    'ruby_lsp',
+    -- 'ruby_lsp',
     'rust_analyzer',
     'tailwindcss',
     'ts_ls',
@@ -82,11 +82,11 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
-vim.api.nvim_create_autocmd('BufWritePre', {
-  callback = function()
-    vim.lsp.buf.format()
-  end,
-})
+-- vim.api.nvim_create_autocmd('BufWritePre', {
+--   callback = function()
+--     vim.lsp.buf.format()
+--   end,
+-- })
 
 require('luasnip.loaders.from_vscode').lazy_load()
 
