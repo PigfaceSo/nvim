@@ -1,5 +1,6 @@
 vim.pack.add({
   { src = 'https://github.com/catppuccin/nvim',            name = 'catppuccin' },
+  { src = 'https://github.com/nvim-lua/plenary.nvim' },
   { src = 'https://github.com/nvim-tree/nvim-web-devicons' },
   { src = 'https://github.com/jiaoshijie/undotree' },
   { src = 'https://github.com/windwp/nvim-autopairs' },
@@ -8,6 +9,7 @@ vim.pack.add({
   { src = 'https://github.com/kylechui/nvim-surround' },
   { src = 'https://github.com/folke/which-key.nvim', name = 'which-key' },
   { src = 'https://github.com/ibhagwan/fzf-lua' },
+  { src = 'https://github.com/nvim-tree/nvim-tree.lua' },
 
 })
 
@@ -38,6 +40,12 @@ end, { desc = 'Undotree' })
 vim.keymap.set('n', '<leader>aa', function()
   require('sidekick.cli').toggle()
 end, { desc = 'Toggle CLI (Sidekick)' })
+
+require('nvim-tree').setup()
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+vim.keymap.set('n', '<leader>ee', ':NvimTreeToggle<cr>', { desc = 'NvimTreeToggle' })
+vim.keymap.set('n', '<leader>ef', ':NvimTreeFocus<cr>', { desc = 'NvimTreeFocus' })
 
 require('fzf-lua').setup()
 vim.keymap.set('n', '<leader>ff', ':FzfLua files<cr>', { desc = 'Find files (fzf-lua)'})
