@@ -15,7 +15,6 @@ require('core.keymaps')
 require('core.autocmd')
 
 require('plugins.ai')
-require('plugins.zellij')
 require('plugins.git')
 require('plugins.highlight')
 require('plugins.telescope')
