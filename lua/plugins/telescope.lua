@@ -1,6 +1,8 @@
 vim.pack.add({
-  { src = 'https://github.com/nvim-telescope/telescope.nvim' },
-  { src = 'https://github.com/nvim-telescope/telescope-file-browser.nvim' },
+  { src = 'https://github.com/nvim-telescope/telescope.nvim', name = 'telescope' },
+  { src = 'https://github.com/nvim-telescope/telescope-file-browser.nvim', name = 'telescope-file-browser' },
+  { src = 'https://github.com/debugloop/telescope-undo.nvim', name = 'telescope-undo' },
+  { src = 'https://github.com/jvgrootveld/telescope-zoxide', name = 'telescope-zoxide' }
 })
 
 local telescope_actions = require("telescope.actions")
@@ -21,7 +23,6 @@ require("telescope").setup({
   },
   extensions = {
     file_browser = {
-      theme = "dropdown",
       hijack_netrw = false,
       respect_gitignore = true,
       no_ignore = true,
@@ -29,10 +30,7 @@ require("telescope").setup({
       grouped = true,
       hide_parent_dir = true,
       previewer = true,
-      initial_mode = "insert",
-      layout_config = {
-        height = 10,
-      },
+      initial_mode = "normal",
       mappings = {
         ["n"] = {
           ["a"] = telescope_fb_actions.create,
@@ -50,8 +48,9 @@ require("telescope").setup({
   },
 })
 
+require("telescope").load_extension("undo")
 require("telescope").load_extension("file_browser")
--- require('telescope').load_extension('lazygit')
+require("telescope").load_extension("zoxide")
 
 local builtin = require('telescope.builtin')
 vim.keymap.set('n', '<leader>ff', builtin.find_files, { desc = 'Find File (Telescope)' })
@@ -74,11 +73,18 @@ vim.keymap.set('n', '<leader>gs', builtin.git_status, { desc = 'Git Status (Tele
 vim.keymap.set('n', '<leader>ls', builtin.lsp_workspace_symbols, { desc = 'Lsp Workspace Symbols (Telescope)' })
 vim.keymap.set('n', '<leader>lr', builtin.lsp_references, { desc = 'Lsp References (Telescope)' })
 vim.keymap.set('n', '<leader>ld', builtin.diagnostics, { desc = 'Lsp Diagnostics (Telescope)' })
-vim.keymap.set('n', '<leader>r', builtin.resume, { desc = 'Resume (Telescope)' })
+-- vim.keymap.set('n', '<leader>r', builtin.resume, { desc = 'Resume (Telescope)' })
 vim.keymap.set('n', '<leader>:', builtin.command_history, { desc = 'Command History (Telescope)' })
 vim.keymap.set('n', '<leader>e', function()
   require('telescope').extensions.file_browser.file_browser({
     path = '%:p:h',
     select_buffer = true,
   })
-end, { desc = 'Explorer (Telescope)' })
+end, { desc = 'Explorer Current (Telescope)' })
+vim.keymap.set('n', '<leader>E', function()
+  require('telescope').extensions.file_browser.file_browser({
+    select_buffer = true,
+  })
+end, { desc = 'Explorer Parent (Telescope)' })
+vim.keymap.set('n', '<leader>u', '<cmd>Telescope undo<cr>', { desc = 'Undotree (Telescope)' })
+vim.keymap.set("n", "<leader>cd", require("telescope").extensions.zoxide.list, { desc = 'Zoxide (Telescope)' })

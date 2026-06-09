@@ -1,10 +1,10 @@
 vim.pack.add({
-  { src = 'https://github.com/neovim/nvim-lspconfig' },
-  { src = 'https://github.com/mason-org/mason.nvim' },
-  { src = 'https://github.com/mason-org/mason-lspconfig.nvim' },
-  { src = 'https://github.com/saghen/blink.cmp',              version = vim.version.range('^1') },
-  { src = 'https://github.com/L3MON4D3/LuaSnip' },
-  { src = 'https://github.com/rafamadriz/friendly-snippets' }
+  { src = 'https://github.com/neovim/nvim-lspconfig', name = 'nvim-lspconfig' },
+  { src = 'https://github.com/mason-org/mason.nvim', name = 'mason' },
+  { src = 'https://github.com/mason-org/mason-lspconfig.nvim', name = 'mason-lspconfig' },
+  { src = 'https://github.com/saghen/blink.cmp', name = 'blink.cmp', version = vim.version.range('^1') },
+  { src = 'https://github.com/L3MON4D3/LuaSnip', name = 'LuaSnip' },
+  { src = 'https://github.com/rafamadriz/friendly-snippets', name = 'friendly-snippets' }
 })
 
 vim.diagnostic.enable = true
@@ -15,6 +15,7 @@ vim.diagnostic.config({
 require('mason').setup()
 require('mason-lspconfig').setup({
   ensure_installed = {
+    'arduino_language_server',
     'bashls',
     'bashls',
     'clangd',

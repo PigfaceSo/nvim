@@ -1,8 +1,7 @@
 vim.pack.add({
-  { src = 'https://github.com/lewis6991/gitsigns.nvim' },
-  { src = 'https://github.com/kdheepak/lazygit.nvim' },
-  -- { src = 'https://github.com/NeogitOrg/neogit' },
-  
+  { src = 'https://github.com/lewis6991/gitsigns.nvim', name = 'gitsigns' },
+  -- { src = 'https://github.com/kdheepak/lazygit.nvim', name = 'lazygit' },
+  { src = 'https://github.com/NeogitOrg/neogit', name = 'neogit' },
 })
 
 require('gitsigns').setup({
@@ -16,6 +15,6 @@ vim.keymap.set('n', '<leader>hp', '<cmd>Gitsigns preview_hunk<cr>', { desc = 'Pr
 vim.keymap.set('n', '<leader>hd', '<cmd>Gitsigns diffthis<cr>', { desc = 'Git Diff' })
 vim.keymap.set('n', '<leader>tb', '<cmd>Gitsigns toggle_current_line_blame<cr>', { desc = 'Toggle Line Blame' })
 
-vim.keymap.set('n', '<leader>go', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
+-- vim.keymap.set('n', '<leader>go', '<cmd>LazyGit<cr>', { desc = 'LazyGit' })
 
--- vim.keymap.set('n', '<leader>go',':Neogit<cr>', { desc = 'Neogit' })
+vim.keymap.set('n', '<leader>go',':Neogit<cr>', { desc = 'Neogit' })
